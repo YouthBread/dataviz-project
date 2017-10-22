@@ -5,13 +5,60 @@
     <meta name="viewport" content="width=device-width">
     <script src="https://d3js.org/d3.v4.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.24.0/d3-legend.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700" rel="stylesheet">
+
+
+    <script src="src/Court.js"></script>
+    <script src="src/Shot.js"></script>
+    <script src="src/Slider.js"></script>
     <title>Visualization Project</title>
     <link rel="stylesheet" href="css/styles.css">
   </head>
   <body>
-    <div id="visualization">
-      <svg></svg>
-    </div>
-    <script src="./dist/bundle.js"></script>
+    <h3 id="header"></h3>
+    <div id="chart"></div>
+    <div id="slider"></div>
+    <script>
+        const margin = { left: 20, right: 20, top: 20, bottom: 20 };
+        var chartDiv = document.getElementById("chart");
+        var court = d3.select(chartDiv).append('court').append("svg")
+
+        court.attr("width", chartDiv.clientWidth)
+             .attr("height", chartDiv.clientHeight)
+
+        var court_g = court.append("g");
+        // var data_g = d3.select(chartDiv).append('shot').append("svg")
+        const court_xScale = d3.scaleLinear()
+                                     .domain([-25, 25]);
+        const court_yScale = d3.scaleLinear()
+                                     .domain([-4,43]);
+        const shot_xScale = d3.scaleLinear()
+                                     .domain([-250, 250]);
+        const shot_yScale = d3.scaleLinear()
+                                     .domain([-45,420]);
+
+
+
+
+        var Basket = court_g.append('circle');
+        var Backboard = court_g.append('rect');
+        var Outterbox = court_g.append('rect');
+        var Innerbox = court_g.append('rect');
+        var CornerThreeLeft = court_g.append('rect');
+        var CornerThreeRight = court_g.append('rect');
+        var OuterLine = court_g.append('rect');
+        var RestrictedArea = court_g.append('path')
+        var TopFreeThrow = court_g.append('path')
+        var BottomFreeThrow = court_g.append('path')
+        var ThreeLine = court_g.append('path')
+        var CenterOuter = court_g.append('path')
+        var CenterInner = court_g.append('path')
+
+        draw_court();
+        // add_shot();
+
+        Slider();
+
+    </script>
   </body>
 </html>
