@@ -1,5 +1,5 @@
 function Slider () {
-    const width = chartDiv.clientWidth/4;
+    const width = 480
     const height = width/50*47;
     const innerWidth = width - margin.left - margin.right;
     const innerHeight = height - margin.top - margin.bottom;

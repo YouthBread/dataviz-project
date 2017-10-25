@@ -1,5 +1,5 @@
 function add_shot(year){
-    const width = chartDiv.clientWidth/4;
+    const width = 480;
     const height = width/50*47;
 
     const innerWidth = width - margin.left - margin.right;
@@ -45,13 +45,12 @@ function add_shot(year){
 
 
             circles_miss
-              .enter().append('circle')
+              .enter().append('path')
               .merge(circles_miss)
                 .attr('class','circle_miss')
-                .attr('cx', d => shot_xScale(d.loc_x))
-                .attr('cy', d => shot_yScale(d.loc_y))
-                .attr('fill', 'red')
+                .attr('transform',function(d,i) { return 'translate('+shot_xScale(d.loc_x)+','+shot_yScale(d.loc_y)+')';})
+                .attr('d', d3.symbol().type(d3.symbols[1]).size(30))
                 .attr('fill-opacity', 0.6)
-                .attr('r', 2);
+                .attr('fill','red');
           });
 }

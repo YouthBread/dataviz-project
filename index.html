@@ -22,8 +22,8 @@
         const margin = { left: 20, right: 20, top: 20, bottom: 20 };
         var chartDiv = document.getElementById('court');
         var court = d3.select(chartDiv).append('court').append('svg');
-        court.attr('width', chartDiv.clientWidth/4)
-             .attr('height', chartDiv.clientWidth/200*47)
+        court.attr('width', 480)
+             .attr('height', 480/50*47)
 
         court.append('table');
 

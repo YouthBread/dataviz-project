@@ -31,3 +31,13 @@ The page will be constantly modified and updated with new visualization part. As
 
 ## Development
 For this project, I'm using `python -m http.server` for building local site and testing the codes.
+
+
+## Reference
+The Slider is referencing [Andrew Wang's](https://bl.ocks.org/wonga00) block [Chart Slider](https://bl.ocks.org/wonga00/1e2e28b19129637ff41b986cf0a05aba/68a0f03be6aeefb1f6d008041366fa20542862ed)
+
+The function that I use to draw the arc of the court is referencing [virajsanghvi/d3.basketball-shot-chart](https://github.com/virajsanghvi/d3.basketball-shot-chart).
+
+The size of the court is referencing [Basketball Court Dimensions & Measurements](http://www.courtdimensions.net/basketball-court/index.php)
+
+The player season stats if referencing [Basketball reference](https://www.basketball-reference.com/players/b/bryanko01.html)
