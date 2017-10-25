@@ -14,8 +14,8 @@ function add_shot(year){
 
 
     d3.csv('data/kobe.csv', data => {
-            d3.selectAll('circle').remove();
-
+            //filtering the unreasonable shot
+            var data = data.filter(d=>d.loc_y < 400)
             var temp_data = d3.nest()
                       .key(function(d) { return d.season; })
                       .key(function(d) { return d.shot_made_flag; })
@@ -27,7 +27,7 @@ function add_shot(year){
             var made = temp_data[0].values[0];
             var miss = temp_data[0].values[1];
 
-            var circles_made = court.selectAll('circle_made').data(made.values)
+            var circles_made = court.selectAll('.circle_made').data(made.values)
             circles_made.exit().remove();
 
             circles_made
@@ -40,7 +40,7 @@ function add_shot(year){
                 .attr('fill-opacity', 0.6)
                 .attr('r', 2);
 
-            var circles_miss = court.selectAll('circle_miss').data(miss.values)
+            var circles_miss = court.selectAll('.circle_miss').data(miss.values)
             circles_miss.exit().remove();
 
 
