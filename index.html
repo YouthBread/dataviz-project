@@ -1,33 +1,43 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
-    <script src="https://d3js.org/d3.v4.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.24.0/d3-legend.min.js"></script>
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700" rel="stylesheet">
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width'>
+    <script src='https://d3js.org/d3.v4.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.24.0/d3-legend.min.js'></script>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700' rel='stylesheet'>
 
 
-    <script src="src/Court.js"></script>
-    <script src="src/Shot.js"></script>
-    <script src="src/Slider.js"></script>
+    <script src='src/Court.js'></script>
+    <script src='src/Shot.js'></script>
+    <script src='src/Slider.js'></script>
+    <script src='src/Table.js'></script>
     <title>Visualization Project</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel='stylesheet' href='css/styles.css'>
   </head>
   <body>
-    <h3 id="header"></h3>
-    <div id="chart"></div>
-    <div id="slider"></div>
+    <div id='court'></div>
+    <div id='stats'></div>
     <script>
         const margin = { left: 20, right: 20, top: 20, bottom: 20 };
-        var chartDiv = document.getElementById("chart");
-        var court = d3.select(chartDiv).append('court').append("svg")
+        var chartDiv = document.getElementById('court');
+        var court = d3.select(chartDiv).append('court').append('svg');
+        court.attr('width', chartDiv.clientWidth/4)
+             .attr('height', chartDiv.clientWidth/200*47)
 
-        court.attr("width", chartDiv.clientWidth)
-             .attr("height", chartDiv.clientHeight)
+        court.append('table');
 
-        var court_g = court.append("g");
-        // var data_g = d3.select(chartDiv).append('shot').append("svg")
+
+        var court_g = court.append('g');
+        var title = court.append('text');
+        // var data_g = d3.select(chartDiv).append('shot').append('svg')
+
+        var slider_axis = court.append('g')
+                               .attr('class', 'slider-axis');
+        var slider_rect = court.append('g')
+                               .attr('class', 'slider-rect');
+        var rect_entity = slider_rect.append('rect');
+
         const court_xScale = d3.scaleLinear()
                                      .domain([-25, 25]);
         const court_yScale = d3.scaleLinear()
@@ -36,6 +46,7 @@
                                      .domain([-250, 250]);
         const shot_yScale = d3.scaleLinear()
                                      .domain([-45,420]);
+
 
 
 
@@ -58,7 +69,8 @@
         // add_shot();
 
         Slider();
-
+        window.addEventListener('resize', draw_court);
+        window.addEventListener('resize', Slider);
     </script>
   </body>
 </html>
