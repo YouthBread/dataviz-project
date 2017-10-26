@@ -38,7 +38,7 @@ function Heat_Map(year){
             heatmap
                 .attr('fill', 'none')
                 .attr('stroke', '#000')
-                .attr('stroke-width', 0.5)
+                .attr('stroke-width', 0)
                 .attr('stroke-linejoin', 'round')
                 .enter().append('path')
                 .merge(heatmap)

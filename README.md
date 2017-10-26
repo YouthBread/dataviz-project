@@ -25,7 +25,7 @@ Describe game info:
 ## Implementation
 Current version has a basketball court and a basic stats table but has an interaction feature of selecting different season that Kobe played.
 ![beta](https://github.com/YouthBread/kobe-bryant-dataviz-project/blob/master/other_resource/pic.png)
-The page will be constantly modified and updated with new visualization part. As you can see,
+The page will be constantly modified and updated with new visualization part.
 
 
 

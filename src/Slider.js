@@ -13,7 +13,7 @@ function Slider () {
 
     var minDate = new Date('1997'),
         scale = d3.scaleTime()
-            .domain([minDate, d3.timeYear.offset(minDate, 20)])
+            .domain([minDate, d3.timeYear.offset(minDate, 19)])
             .range([margin.left, innerWidth])
             .clamp(true),
         format = d3.timeFormat('%Y');
