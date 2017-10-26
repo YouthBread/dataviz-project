@@ -19,8 +19,9 @@ function Slider () {
         format = d3.timeFormat('%Y');
 
     updateHeader(minDate)
-    add_shot(minDate)
+    // add_shot(minDate)
     Stat_Table(minDate);
+    Heat_Map(minDate);
 
 
 
@@ -49,12 +50,13 @@ function Slider () {
     function dragged(d) {
         const parseTime = d3.timeParse("%Y");
         var prev = title.text().split('-')[0]
-        var x = Math.min(d3.event.x, innerWidth-margin.left);
+        var x = Math.min(d3.event.x, innerWidth);
                 value = scale.invert(x);
 
-        d3.select('.slider').attr('transform', 'translate(' + x + ',' + innerHeight + ')');
+        d3.select('.slider').attr('transform', 'translate(' + Math.max(0,Math.min(x, x-margin.left)) + ',' + innerHeight + ')');
         updateHeader(value);
-        if (value.getFullYear() != parseTime(prev).getFullYear()) add_shot(value); Stat_Table(value);
+        if (value.getFullYear() != parseTime(prev).getFullYear()) Heat_Map(value); Stat_Table(value);
+            //add_shot(value); Stat_Table(value);
     }
 }
 

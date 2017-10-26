@@ -5,17 +5,21 @@
     <meta name='viewport' content='width=device-width'>
     <script src='https://d3js.org/d3.v4.min.js'></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.24.0/d3-legend.min.js'></script>
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700' rel='stylesheet'>
-
+    <script src="https://d3js.org/d3-contour.v1.min.js"></script>
+    <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
 
     <script src='src/Court.js'></script>
     <script src='src/Shot.js'></script>
     <script src='src/Slider.js'></script>
     <script src='src/Table.js'></script>
+    <script src='src/HeatMap.js'></script>
+
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700' rel='stylesheet'>
     <title>Visualization Project</title>
     <link rel='stylesheet' href='css/styles.css'>
   </head>
   <body>
+    <h1 id='caption'></h1>
     <div id='court'></div>
     <div id='stats'></div>
     <script>
@@ -27,15 +31,16 @@
 
         court.append('table');
 
-
+        var heat_g = court.append('g')
         var court_g = court.append('g');
-        var title = court.append('text');
+        var title = d3.select(document.getElementById('caption')).append('text');
         // var data_g = d3.select(chartDiv).append('shot').append('svg')
 
         var slider_axis = court.append('g')
                                .attr('class', 'slider-axis');
         var slider_rect = court.append('g')
                                .attr('class', 'slider-rect');
+
         var rect_entity = slider_rect.append('rect');
 
         const court_xScale = d3.scaleLinear()
@@ -47,7 +52,8 @@
         const shot_yScale = d3.scaleLinear()
                                      .domain([-45,420]);
 
-
+        var color = d3.scaleSequential(d3.interpolateOrRd)
+                      .domain([5e-6, 3e-2]); // Points per square pixel.
 
 
 
@@ -67,10 +73,9 @@
 
         draw_court();
         // add_shot();
-
         Slider();
-        window.addEventListener('resize', draw_court);
-        window.addEventListener('resize', Slider);
+        // window.addEventListener('resize', draw_court);
+        // window.addEventListener('resize', Slider);
     </script>
   </body>
 </html>
