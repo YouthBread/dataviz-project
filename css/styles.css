@@ -21,3 +21,15 @@ body {
   opacity: 0.3;
   shape-rendering: crispEdges;
 }
+
+table {
+  border-spacing: 0;
+}
+td {
+  padding:6px;
+  height: 2ex;
+}
+th {
+  padding:6px;
+  height: 2ex;
+}

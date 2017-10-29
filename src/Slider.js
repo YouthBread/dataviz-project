@@ -1,5 +1,5 @@
 function Slider () {
-    const width = 480
+    const width = 580
     const height = width/50*47;
     const innerWidth = width - margin.left - margin.right;
     const innerHeight = height - margin.top - margin.bottom;
@@ -22,6 +22,7 @@ function Slider () {
     // add_shot(minDate)
     Stat_Table(minDate);
     Heat_Map(minDate);
+    Injurty_Info(minDate);
 
 
 
@@ -55,7 +56,7 @@ function Slider () {
 
         d3.select('.slider').attr('transform', 'translate(' + Math.max(0,Math.min(x, x-margin.left)) + ',' + innerHeight + ')');
         updateHeader(value);
-        if (value.getFullYear() != parseTime(prev).getFullYear()) Heat_Map(value); Stat_Table(value);
+        if (value.getFullYear() != parseTime(prev).getFullYear()) Heat_Map(value); Stat_Table(value); Injurty_Info(value);
             //add_shot(value); Stat_Table(value);
     }
 }
