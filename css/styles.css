@@ -2,6 +2,12 @@ body {
   font-family: 'Open Sans', sans-serif;
 }
 
+.axis-label, .legend-label {
+  fill: #AAAAAA;
+  font-size: 10pt;
+  font-family: 'Open Sans', sans-serif;
+}
+
 #court {
   position: fixed;
   left: 0px;

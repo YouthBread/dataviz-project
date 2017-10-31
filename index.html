@@ -15,6 +15,7 @@
     <script src='src/HeatMap.js'></script>
     <script src='src/Injury.js'></script>
     <script src="src/Line.js"></script>
+    <script src="src/RadarChart.js"></script>
 
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700' rel='stylesheet'>
     <title>Visualization Project</title>
@@ -27,12 +28,11 @@
         const margin = { left: 20, right: 20, top: 20, bottom: 20 };
         var chartDiv = document.getElementById('court');
         var court = d3.select(chartDiv).append('svg');
-        var line_chart = d3.select(chartDiv).append('svg');
-        court.attr('width', 580)
-             .attr('height', 580/50*47)
+        var radar = d3.select(chartDiv).append('svg').attr('class', 'radarChart');
 
-        line_chart.attr('width', 580)
-             .attr('height', 580/50*47)
+        court.attr('width', 1000)
+             .attr('height',600)
+             .attr("transform", "translate(0,0)");
 
 
 
@@ -41,6 +41,9 @@
 
         var court_g = court.append('g')
                            .attr('id', 'basketball_court');
+
+
+
 
         var title = d3.select(document.getElementById('caption')).append('text');
 
@@ -81,11 +84,21 @@
         var CenterInner = court_g.append('path')
 
         draw_court();
-        // add_shot();
         Slider();
-        Stat_Line();
-        // window.addEventListener('resize', draw_court);
-        // window.addEventListener('resize', Slider);
+        Stat_Line('PTS');
+
+        var data = [
+            [
+            {axis:"Offence",value:0.89},
+            {axis:"Deffence",value:0.28},
+            {axis:"Efficency",value:0.29},
+            ]
+          ];
+
+
+      //Call function to draw the Radar chart
+      RadarChart(".radarChart", data);
+
     </script>
   </body>
 </html>

@@ -1,6 +1,8 @@
-function Stat_Line(){
-      const width = 480;
-      const height = width/50*47;
+function Stat_Line(col){
+      const margin = { left: 60, right: 60, top: 20, bottom: 20 };
+
+      const width = 400;
+      const height = 300;
 
       const innerWidth = width - margin.left - margin.right;
       const innerHeight = height - margin.top - margin.bottom;
@@ -21,76 +23,61 @@ function Stat_Line(){
         .tickPadding(15)
         .tickSize(5);
 
-
-      const xAxisG = line_chart.append('g')
+      const xAxisG = court.append('g')
           .attr('transform', `translate(${0}, ${innerHeight})`);
-      const yAxisG = line_chart.append('g')
-          .attr('transform', `translate(${margin.left+20}, ${0})`);
+      const yAxisG = court.append('g')
+          .attr('transform', `translate(${margin.left+580}, ${0})`);
+
       xAxisG.append('text')
           .attr('class', 'axis-label')
-          .attr('x', innerWidth / 2)
-          .attr('y', 50)
+          .attr('x', innerWidth / 2 + 580)
+          .attr('y', 40)
           .text('Year');
 
       yAxisG.append('text')
           .attr('class', 'axis-label')
-          .attr('x', margin.left)
-          .attr('y', -60)
+          .attr('x', -innerHeight / 2)
+          .attr('y', -35)
           .attr('transform', `rotate(-90)`)
           .style('text-anchor', 'middle')
-          .text('Global Sales');
+          .text(col);
 
 
       var line = d3.line()
-              .x(function(d) {console.log(d.Season.split('-')[0],xScale(parseTime(d.Season.split('-')[0]))); return xScale(parseTime(d.Season.split('-')[0]))})
-              .y(function(d) {console.log(d.PTS, yScale(d.PTS)); return yScale(d.PTS);});
+              .x(function(d) {return xScale(parseTime(d.Season.split('-')[0]))})
+              .y(function(d) {return yScale(d[col])});
 
 
       d3.csv('data/stat.csv', data => {
 
         xScale
           .domain(d3.extent(data, d=>parseTime(d.Season.split('-')[0])))
-          .range([margin.left+20, innerWidth])
+          .range([margin.left+580, innerWidth+580])
           .nice();
 
         yScale
-          .domain([5,40])
+          .domain(d3.extent(data, d=>+d[col]))
           .range([innerHeight, margin.top])
           .nice();
 
 
-        line_chart.append('path')
+        court.append('path')
            .attr("fill", "none")
            .attr('stroke', 'steelblue')
            .attr("stroke-linejoin", "round")
            .attr("stroke-linecap", "round")
-           .attr("stroke-width", 5)
+           .attr("stroke-width", 2)
            .attr("d", line(data));
 
 
 
-        // line_chart.append('path')
-        //    .datum(temp_data['PTS'])
-        //    .attr("fill", "none")
-        //    .attr("stroke-linejoin", "round")
-        //    .attr("stroke-linecap", "round")
-        //    .attr("stroke-width", 5)
-        //    .attr("d", line);
-
-
-        // for (i=0;i<temp_data.length;i++){
-        //   var pn = temp_data[i].key;
-        //   for (j=0; j<temp_data[i].values.length;j++){
-        //      line_chart.append('circle')
-        //       .datum(temp_data[i].values[j])
-        //         .attr('cx', d => xScale(parseTime(d.key)))
-        //         .attr('cy', d => yScale(d.value))
-        //         .attr('pn', pn)
-        //         .attr('fill', '#0074D9')
-        //         .attr('fill-opacity', 0.6)
-        //         .attr('r', 3.5)
-        //   }
-        // }
+        court.selectAll('circle').data(data)
+          .enter().append('circle')
+            .attr('cx', d => xScale(parseTime(d.Season.split('-')[0])))
+            .attr('cy', d => yScale(d[col]))
+            .attr('fill', 'blue')
+            .attr('fill-opacity', 0.6)
+            .attr('r', 3)
 
 
         xAxisG.call(xAxis);
