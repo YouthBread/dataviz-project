@@ -8,13 +8,9 @@ body {
   font-family: 'Open Sans', sans-serif;
 }
 
-#court {
-  position: fixed;
-  left: 0px;
-  right: 0px;
-  top: 70px;
-  bottom: 0px;
-}
+
+
+
 
 .slider rect {
   fill: gray;
@@ -32,10 +28,10 @@ table {
   border-spacing: 0;
 }
 td {
-  padding:6px;
-  height: 2ex;
+  padding:10px;
+  height: 10ex;
 }
 th {
-  padding:6px;
-  height: 2ex;
+  padding:10px;
+  height: 10ex;
 }

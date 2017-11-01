@@ -1,8 +1,8 @@
-function Stat_Line(col){
+function Stat_Line(col, postion){
       const margin = { left: 60, right: 60, top: 20, bottom: 20 };
 
-      const width = 400;
-      const height = 300;
+      const width = 600;
+      const height = 400;
 
       const innerWidth = width - margin.left - margin.right;
       const innerHeight = height - margin.top - margin.bottom;
@@ -23,10 +23,13 @@ function Stat_Line(col){
         .tickPadding(15)
         .tickSize(5);
 
-      const xAxisG = court.append('g')
+      var temp_g = d3.select("#"+postion).append('svg');
+      temp_g.attr('width', width)
+            .attr('height', height);
+      const xAxisG = temp_g.append('g')
           .attr('transform', `translate(${0}, ${innerHeight})`);
-      const yAxisG = court.append('g')
-          .attr('transform', `translate(${margin.left+580}, ${0})`);
+      const yAxisG = temp_g.append('g')
+          .attr('transform', `translate(${margin.left}, ${0})`);
 
       xAxisG.append('text')
           .attr('class', 'axis-label')
@@ -52,7 +55,7 @@ function Stat_Line(col){
 
         xScale
           .domain(d3.extent(data, d=>parseTime(d.Season.split('-')[0])))
-          .range([margin.left+580, innerWidth+580])
+          .range([margin.left, innerWidth])
           .nice();
 
         yScale
@@ -61,7 +64,7 @@ function Stat_Line(col){
           .nice();
 
 
-        court.append('path')
+        temp_g.append('path')
            .attr("fill", "none")
            .attr('stroke', 'steelblue')
            .attr("stroke-linejoin", "round")
@@ -71,7 +74,7 @@ function Stat_Line(col){
 
 
 
-        court.selectAll('circle').data(data)
+        temp_g.selectAll('circle').data(data)
           .enter().append('circle')
             .attr('cx', d => xScale(parseTime(d.Season.split('-')[0])))
             .attr('cy', d => yScale(d[col]))
