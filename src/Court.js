@@ -9,7 +9,7 @@ function add_court_component(){
 }
 
 function draw_court(){
-    const width = 580;
+    const width = court_width;
     const height = width/50*47;
     court_g.attr("width", width)
            .attr("height", height)
@@ -99,7 +99,7 @@ function draw_court(){
 
 
     var angle = Math.atan((10-0.75)/(22))* 180 / Math.PI
-    var dis = court_yScale(18.5);
+    var dis = court_yScale(18);
     appendArcPath(ThreeLine, dis, (angle+90)*(Math.PI/180), (270-angle)*(Math.PI/180))
         .attr('fill', 'none')
         .attr("stroke", "black")

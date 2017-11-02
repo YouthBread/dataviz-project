@@ -9,7 +9,7 @@ function RadarChart(id, data, options) {
   var cfg = {
    w: 300,        //Width of the circle
    h: 300,        //Height of the circle
-   margin: {top: 50, right: 50, bottom: 50, left: 50}, //The margins of the SVG
+   margin: {top: 100, right: 100, bottom: 100, left: 150}, //The margins of the SVG
    levels: 3,       //How many levels or inner circles should there be drawn
    maxValue: 1,       //What is the value that the biggest circle will represent
    labelFactor: 1.25,   //How much farther than the radius of the outer circle should the labels be placed

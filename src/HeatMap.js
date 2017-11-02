@@ -1,5 +1,5 @@
 function Heat_Map(year){
-    const width = 580;
+    const width = court_width;
     const height = width/50*47;
 
     const innerWidth = width - margin.left - margin.right;

@@ -1,5 +1,5 @@
 function Slider () {
-    const width = 580
+    const width = court_width;
     const height = width/50*47;
     const innerWidth = width - margin.left - margin.right;
     const innerHeight = height - margin.top - margin.bottom;
@@ -23,6 +23,7 @@ function Slider () {
     Stat_Table(minDate);
     Heat_Map(minDate);
     Injurty_Info(minDate);
+    Shot_Score_Line(minDate, 'line1')
 
 
 
@@ -56,7 +57,7 @@ function Slider () {
 
         d3.select('.slider').attr('transform', 'translate(' + Math.max(0,Math.min(x, x-margin.left)) + ',' + innerHeight + ')');
         updateHeader(value);
-        if (value.getFullYear() != parseTime(prev).getFullYear()) Heat_Map(value); Stat_Table(value); Injurty_Info(value);
+        if (value.getFullYear() != parseTime(prev).getFullYear()) Heat_Map(value); Stat_Table(value); Injurty_Info(value);Shot_Score_Line(value, 'line1');
             //add_shot(value); Stat_Table(value);
     }
 }
