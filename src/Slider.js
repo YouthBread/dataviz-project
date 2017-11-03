@@ -23,7 +23,9 @@ function Slider () {
     Stat_Table(minDate);
     Heat_Map(minDate);
     Injurty_Info(minDate);
-    Shot_Score_Line(minDate, 'line1')
+    Shot_Stat_Line('PTS', 'line1');
+    Shot_Accu_Line(minDate, 'line2');
+    Shot_Score_Line(minDate, 'line3');
 
 
 
@@ -57,8 +59,8 @@ function Slider () {
 
         d3.select('.slider').attr('transform', 'translate(' + Math.max(0,Math.min(x, x-margin.left)) + ',' + innerHeight + ')');
         updateHeader(value);
-        if (value.getFullYear() != parseTime(prev).getFullYear()) Heat_Map(value); Stat_Table(value); Injurty_Info(value);Shot_Score_Line(value, 'line1');
-            //add_shot(value); Stat_Table(value);
+        if (value.getFullYear() != parseTime(prev).getFullYear()) Heat_Map(value); Stat_Table(value); Injurty_Info(value);    Shot_Accu_Line(value, 'line2');Shot_Score_Line(value, 'line3');
+            //add_shot(value);
     }
 }
 

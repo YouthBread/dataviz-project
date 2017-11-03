@@ -1,4 +1,5 @@
-function Stat_Line(col, position){
+//Fixed plot
+function Shot_Stat_Line(col, position){
       const margin = { left: 60, right: 60, top: 20, bottom: 20 };
 
       const width = 750;
@@ -103,7 +104,7 @@ function Stat_Line(col, position){
 
 }
 
-
+//Plot with general update
 function Shot_Accu_Line(year,position){
       var format = d3.timeFormat('%Y');
 
@@ -154,7 +155,6 @@ function Shot_Accu_Line(year,position){
 
 
 
-
       d3.csv('data/kobe.csv', data => {
           var temp_data = data.filter(d=>d.season == target_season)
 
@@ -167,9 +167,8 @@ function Shot_Accu_Line(year,position){
           var miss = 0;
 
           for (i = 0; i < temp_data.length; i++) {
-            console.log(temp_data[i].values)
             if (temp_data[i].values[0]) {
-              if (temp_data[i].key[0] == '1') {
+              if (temp_data[i].values[0].key == '1') {
                 made = temp_data[i].values[0].value
               } else {
                 miss = temp_data[i].values[0].value
@@ -177,13 +176,12 @@ function Shot_Accu_Line(year,position){
             }
 
             if (temp_data[i].values[1]) {
-              if (temp_data[i].key[1] == '1') {
+              if (temp_data[i].values[1].key == '1') {
                 made = temp_data[i].values[1].value
               } else {
                 miss = temp_data[i].values[1].value
               }
             }
-            console.log(made, miss)
             temp_data[i].values = made/(miss+made)
 
           }
@@ -201,57 +199,58 @@ function Shot_Accu_Line(year,position){
             .range([innerHeight, margin.top])
             .nice();
 
-          console.log(temp_data)
-          // var path_made = temp_g.selectAll('#line_path').data([temp_data])
-          // path_made.exit().remove();
+          var path_made = temp_g.selectAll('#line_path').data([temp_data])
+          path_made.exit().transition(t).remove();
 
-          // path_made
-          //    .enter().append('path')
-          //    .merge(path_made)
-          //    .attr('id', 'line_path')
-          //    .attr("fill", "none")
-          //    .attr('stroke', 'steelblue')
-          //    .attr("stroke-linejoin", "round")
-          //    .attr("stroke-linecap", "round")
-          //    .attr("stroke-width", 2)
-          //    .attr("d", line(temp_data));
-
-
-          // console.log(temp_data)
-          // var circles_made = temp_g.selectAll('#line_circle').data(temp_data)
-          // circles_made.exit().remove();
+          path_made
+             .enter().append('path')
+             .merge(path_made)
+             .attr('id', 'line_path')
+             .attr("fill", "none")
+             .attr('stroke', 'steelblue')
+             .attr("stroke-linejoin", "round")
+             .attr("stroke-linecap", "round")
+             .attr("stroke-width", 2)
+             .transition(t)
+             .attr("d", line(temp_data));
 
 
-          // circles_made
-          //   .enter().append('circle')
-          //   .merge(circles_made)
-          //      .attr('id', 'line_circle')
-          //     .attr('cx', d => xScale(parseTime(d.key)))
-          //     .attr('cy', d => yScale(d.values))
-          //     .attr('fill', 'blue')
-          //     .attr('fill-opacity', 0.6)
-          //     .attr('r', 3)
-          //     .on("mouseover", function(d) {
-          //       tool_tips.transition()
-          //           .duration(200)
-          //           .style("opacity", 1);
-          //       tool_tips.html("Test Injury")
-          //          .style("left", (d3.event.pageX - 20) + "px")
-          //          .style("top", (d3.event.pageY - 20) + "px");
-          //       })
-          //       .on("mouseout", function(d) {
-          //         tool_tips.transition()
-          //            .duration(500)
-          //           .style("opacity", 0);
-          //         });
+          var circles_made = temp_g.selectAll('#line_circle').data(temp_data)
+          circles_made.exit().transition(t).remove();
 
-          // xAxisG.call(xAxis);
-          // yAxisG.call(yAxis);
+
+          circles_made
+            .enter().append('circle')
+            .merge(circles_made)
+               .attr('id', 'line_circle')
+              .attr('fill', 'blue')
+              .attr('fill-opacity', 0.6)
+              .attr('r', 3)
+              .on("mouseover", function(d) {
+                tool_tips.transition()
+                    .duration(200)
+                    .style("opacity", 1);
+                tool_tips.html("Test Injury")
+                   .style("left", (d3.event.pageX - 20) + "px")
+                   .style("top", (d3.event.pageY - 20) + "px");
+                })
+                .on("mouseout", function(d) {
+                  tool_tips.transition()
+                     .duration(500)
+                    .style("opacity", 0);
+                  })
+             .transition(t)
+             .attr('cx', d => xScale(parseTime(d.key)))
+             .attr('cy', d => yScale(d.values));
+
+          xAxisG.call(xAxis);
+          yAxisG.call(yAxis);
 
       });
-
 }
 
+
+//Plot with general update
 function Shot_Score_Line(year,position){
       var format = d3.timeFormat('%Y');
 
@@ -301,7 +300,8 @@ function Shot_Score_Line(year,position){
           .style('text-anchor', 'middle')
           .text('Accuracy');
 
-
+      var t = d3.transition()
+            .duration(750);
 
 
       d3.csv('data/kobe.csv', data => {
@@ -329,7 +329,7 @@ function Shot_Score_Line(year,position){
             .nice();
 
           var path_made = temp_g.selectAll('#line_path').data([temp_data])
-          path_made.exit().remove();
+          path_made.exit().transition(t).remove();
 
           path_made
              .enter().append('path')
@@ -340,34 +340,36 @@ function Shot_Score_Line(year,position){
              .attr("stroke-linejoin", "round")
              .attr("stroke-linecap", "round")
              .attr("stroke-width", 2)
+             .transition(t)
              .attr("d", line(temp_data));
 
           var circles_made = temp_g.selectAll('#line_circle').data(temp_data)
-          circles_made.exit().remove();
+          circles_made.exit().transition(t).remove();
 
 
           circles_made
             .enter().append('circle')
             .merge(circles_made)
                .attr('id', 'line_circle')
+               .attr('fill', 'blue')
+               .attr('fill-opacity', 0.6)
+               .attr('r', 3)
+               .on("mouseover", function(d) {
+                 tool_tips.transition()
+                     .duration(200)
+                     .style("opacity", 1);
+                 tool_tips.html("Test Injury")
+                    .style("left", (d3.event.pageX - 20) + "px")
+                    .style("top", (d3.event.pageY - 20) + "px");
+                 })
+                 .on("mouseout", function(d) {
+                   tool_tips.transition()
+                      .duration(500)
+                     .style("opacity", 0);
+                   })
+              .transition(t)
               .attr('cx', d => xScale(parseTime(d.key)))
-              .attr('cy', d => yScale(d.value))
-              .attr('fill', 'blue')
-              .attr('fill-opacity', 0.6)
-              .attr('r', 3)
-              .on("mouseover", function(d) {
-                tool_tips.transition()
-                    .duration(200)
-                    .style("opacity", 1);
-                tool_tips.html("Test Injury")
-                   .style("left", (d3.event.pageX - 20) + "px")
-                   .style("top", (d3.event.pageY - 20) + "px");
-                })
-                .on("mouseout", function(d) {
-                  tool_tips.transition()
-                     .duration(500)
-                    .style("opacity", 0);
-                  });
+              .attr('cy', d => yScale(d.value));
 
 
           xAxisG.call(xAxis);

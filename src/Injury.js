@@ -8,7 +8,7 @@ function Injurty_Info(year){
       function tabulate(data) {
         d3.select('#injury_table').remove()
 
-        var table = d3.select('#court').append('table').attr('id' ,'injury_table');
+        var table = d3.select('#court').append('table').attr('id' ,'injury_table').attr('class', 'table-condensed');
         var thead_basic = table.append('thead')
         var tbody_basic = table.append('tbody');
         var thead_detail = table.append('thead')

@@ -43,6 +43,7 @@ function Heat_Map(year){
                 .enter().append('path')
                 .merge(heatmap)
                   .attr('fill', function(d) { return color(d.value); })
+                  .transition(t)
                   .attr('d', d3.geoPath());
 
 

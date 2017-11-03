@@ -6,12 +6,15 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- My own script -->
+    <!-- D3.js script -->
     <script src='https://d3js.org/d3.v4.min.js'></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.24.0/d3-legend.min.js'></script>
     <script src="https://d3js.org/d3-contour.v1.min.js"></script>
     <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+    <script src="https://d3js.org/d3-transition.v1.min.js"></script>
 
+
+    <!-- My own script -->
     <script src='src/Court.js'></script>
     <script src='src/Shot.js'></script>
     <script src='src/Slider.js'></script>
@@ -80,7 +83,9 @@ Cras ac elit vitae est posuere pretium. Aliquam a metus tortor, et aliquet risus
 In quis auctor felis. Morbi bibendum eleifend purus, ac commodo lorem semper id. Nulla viverra cursus lobortis. Sed vitae dui erat, a sollicitudin metus. Cras nec lacus massa. In hac habitasse platea dictumst. Nullam posuere arcu sed nulla ultrices scelerisque vestibulum lacus convallis. Nulla et leo vitae est porta sollicitudin. Vestibulum turpis massa, facilisis a fringilla vel, consequat at sapien. Quisque dolor lectus, accumsan varius consequat ac, cursus ut risus.
 </p>
 <svg id="line2">
-  </svg>
+  <g id='x_axis'>    <text id='x_label'></text></g>
+  <g id='y_axis'>    <text id='y_label'></text></g>
+</svg>
 <p>
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas condimentum lorem in magna rutrum pellentesque nec et mauris. Sed eget mi at mauris hendrerit tincidunt. Praesent nec iaculis diam. Morbi interdum interdum consectetur. Aenean at massa vel sapien porta posuere. Maecenas ultricies, erat ac posuere fringilla, velit sapien molestie lorem, sed porta ligula quam ac turpis. Maecenas malesuada pellentesque ullamcorper.
 </p>
@@ -97,7 +102,9 @@ Suspendisse potenti. Nunc id condimentum diam. Aliquam fringilla aliquet tempus.
 Cras a arcu dui. Donec suscipit diam eget erat varius viverra. Donec blandit, erat vel pellentesque aliquam, felis purus eleifend velit, at dapibus erat ligula ac ipsum. Sed suscipit tellus in leo consequat ac gravida dui pretium. Curabitur ultricies porta congue. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Sed et purus neque, sed mattis nunc. Vestibulum in metus elit, et varius ipsum. Proin et dignissim lacus.
 </p>
 <svg id="line3">
-  </svg>
+  <g id='x_axis'>    <text id='x_label'></text></g>
+  <g id='y_axis'>    <text id='y_label'></text></g>
+</svg>
 <p>
 Integer a mi mauris, dapibus dictum dolor. Aliquam erat volutpat. Curabitur consectetur lorem sit amet orci adipiscing rhoncus. Praesent ac quam eget orci semper imperdiet eget non augue. Nunc fermentum ultrices tempus. Ut mauris dolor, imperdiet eget ullamcorper ac, porta et dolor. Donec at urna dolor. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. In hendrerit, felis at vehicula fermentum, turpis erat malesuada sem, ut mollis mauris justo a metus. Ut fringilla iaculis ullamcorper. Vestibulum posuere, lectus eget lacinia scelerisque, elit diam placerat turpis, non ultricies tortor ligula sit amet sapien.
 </p>
@@ -128,7 +135,7 @@ Ut ullamcorper aliquam erat eu commodo. Donec malesuada adipiscing accumsan. Mor
         // var radar = d3.select(chartDiv).append('svg').attr('class', 'radarChart');
 
         court.attr('width', 580)
-             .attr('height',580)
+             .attr('height',500)
              .attr("transform", "translate(0,0)");
 
 
@@ -185,11 +192,12 @@ Ut ullamcorper aliquam erat eu commodo. Donec malesuada adipiscing accumsan. Mor
         var CenterInner = court_g.append('path')
 
         var court_width = 480
+
+        var t = d3.transition()
+                  .duration(500);
+
         draw_court();
         Slider();
-        // Stat_Line('PTS', 'line1');
-        Stat_Line('AST', 'line2');
-        Stat_Line('eFG%', 'line3');
 
         var data = [
             [
