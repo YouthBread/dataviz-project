@@ -42,8 +42,8 @@ function Heat_Map(year){
                 .attr('stroke-linejoin', 'round')
                 .enter().append('path')
                 .merge(heatmap)
-                  .attr('fill', function(d) { return color(d.value); })
                   .transition(t)
+                  .attr('fill', function(d) { return color(d.value); })
                   .attr('d', d3.geoPath());
 
 

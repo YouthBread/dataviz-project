@@ -20,10 +20,11 @@ function Slider () {
         format = d3.timeFormat('%Y');
 
     updateHeader(minDate);
+    Heat_Map(minDate);
     add_shot(minDate);
     Stat_Table(minDate);
-    Heat_Map(minDate);
-    Injurty_Info(minDate);
+    // Injurty_Info(minDate);
+
     Shot_Stat_Line('PTS', 'line1');
     Shot_Accu_Line(minDate, 'line2');
     Shot_Score_Line(minDate, 'line3');
@@ -46,13 +47,26 @@ function Slider () {
 
 
     function updateHeader(date) {
-        title.text(format(date)+'-'+(date.getFullYear()+1).toString()+' season shoting map')
+        var title_court = d3.select(".col-md-5").select('#caption');
+        title_court.text(format(date)+'-'+(date.getFullYear()+1).toString()+' season shoting map')
                             .attr('x', margin.left)
                             .attr('y', margin.top);
+
+        var title_line2 = d3.select("#line2_caption");
+        title_line2.text(format(date)+'-'+(date.getFullYear()+1).toString()+' season shoting accuracy per game')
+                            .attr('x', margin.left)
+                            .attr('y', margin.top);
+
+        var title_line3 = d3.select("#line3_caption");
+        title_line3.text(format(date)+'-'+(date.getFullYear()+1).toString()+' season score per game')
+                            .attr('x', margin.left)
+                            .attr('y', margin.top);
+
     }
 
 
     function dragged(d) {
+        var title = d3.select("#caption");
         var prev = title.text().split('-')[0]
         var x = Math.min(d3.event.x, innerWidth);
                 value = scale.invert(x);
@@ -64,10 +78,10 @@ function Slider () {
     function update_all_plots(value, prev){
         updateHeader(value);
         if (value.getFullYear() != parseTime(prev).getFullYear()) {
-            add_shot(value);
             Heat_Map(value);
+            add_shot(value);
             Stat_Table(value);
-            Injurty_Info(value);
+            // Injurty_Info(value);
             Shot_Accu_Line(value, 'line2');
             Shot_Score_Line(value, 'line3');
         }

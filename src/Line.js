@@ -25,23 +25,19 @@ function Shot_Stat_Line(col, position){
         .tickSize(5);
 
       var temp_g = d3.select("#"+position);
-
       temp_g.attr('width', width)
             .attr('height', height);
-
-      const xAxisG = temp_g.append('g')
+      const xAxisG = d3.select("#"+position).select("#x_axis")
           .attr('transform', `translate(${0}, ${innerHeight})`);
-      const yAxisG = temp_g.append('g')
+      const yAxisG = d3.select("#"+position).select("#y_axis")
           .attr('transform', `translate(${margin.left}, ${0})`);
 
-      xAxisG.append('text')
-          .attr('class', 'axis-label')
-          .attr('x', innerWidth / 2 + 580)
+      xAxisG.select('#x_label')
+          .attr('x', innerWidth / 2)
           .attr('y', 40)
           .text('Year');
 
-      yAxisG.append('text')
-          .attr('class', 'axis-label')
+      yAxisG.select('#y_label')
           .attr('x', -innerHeight / 2)
           .attr('y', -35)
           .attr('transform', `rotate(-90)`)
@@ -49,7 +45,9 @@ function Shot_Stat_Line(col, position){
           .text(col);
 
 
+
       var line = d3.line()
+              .curve(d3.curveMonotoneX)
               .x(function(d) {return xScale(parseTime(d.Season.split('-')[0]))})
               .y(function(d) {return yScale(d[col])});
 
@@ -88,7 +86,7 @@ function Shot_Stat_Line(col, position){
                 tool_tips.transition()
                     .duration(200)
                     .style("opacity", 1);
-                tool_tips.html("Test Injury")
+                tool_tips.html(d[col])
                    .style("left", (d3.event.pageX - 20) + "px")
                    .style("top", (d3.event.pageY - 20) + "px");
                 })
@@ -186,6 +184,7 @@ function Shot_Accu_Line(year,position){
 
           }
           var line = d3.line()
+                  .curve(d3.curveMonotoneX)
                   .x(function(d) {return xScale(parseTime(d.key))})
                   .y(function(d) {return yScale(d.values)});
 
@@ -205,13 +204,13 @@ function Shot_Accu_Line(year,position){
           path_made
              .enter().append('path')
              .merge(path_made)
+             .transition(t)
              .attr('id', 'line_path')
              .attr("fill", "none")
              .attr('stroke', 'steelblue')
              .attr("stroke-linejoin", "round")
              .attr("stroke-linecap", "round")
              .attr("stroke-width", 2)
-             .transition(t)
              .attr("d", line(temp_data));
 
 
@@ -222,15 +221,15 @@ function Shot_Accu_Line(year,position){
           circles_made
             .enter().append('circle')
             .merge(circles_made)
-               .attr('id', 'line_circle')
-              .attr('fill', 'blue')
-              .attr('fill-opacity', 0.6)
-              .attr('r', 3)
-              .on("mouseover", function(d) {
+             .attr('id', 'line_circle')
+             .attr('fill', 'blue')
+             .attr('fill-opacity', 0.6)
+             .attr('r', 3)
+             .on("mouseover", function(d) {
                 tool_tips.transition()
                     .duration(200)
                     .style("opacity", 1);
-                tool_tips.html("Test Injury")
+                tool_tips.html(d.values.toPrecision(3))
                    .style("left", (d3.event.pageX - 20) + "px")
                    .style("top", (d3.event.pageY - 20) + "px");
                 })
@@ -241,7 +240,8 @@ function Shot_Accu_Line(year,position){
                   })
              .transition(t)
              .attr('cx', d => xScale(parseTime(d.key)))
-             .attr('cy', d => yScale(d.values));
+             .attr('cy', d => yScale(d.values))
+
 
           xAxisG.call(xAxis);
           yAxisG.call(yAxis);
@@ -298,7 +298,7 @@ function Shot_Score_Line(year,position){
           .attr('y', -35)
           .attr('transform', `rotate(-90)`)
           .style('text-anchor', 'middle')
-          .text('Accuracy');
+          .text('Score');
 
       var t = d3.transition()
             .duration(750);
@@ -315,6 +315,7 @@ function Shot_Score_Line(year,position){
 
 
           var line = d3.line()
+                  .curve(d3.curveMonotoneX)
                   .x(function(d) {return xScale(parseTime(d.key))})
                   .y(function(d) {return yScale(d.value)});
 
@@ -334,13 +335,13 @@ function Shot_Score_Line(year,position){
           path_made
              .enter().append('path')
              .merge(path_made)
+             .transition(t)
              .attr('id', 'line_path')
              .attr("fill", "none")
              .attr('stroke', 'steelblue')
              .attr("stroke-linejoin", "round")
              .attr("stroke-linecap", "round")
              .attr("stroke-width", 2)
-             .transition(t)
              .attr("d", line(temp_data));
 
           var circles_made = temp_g.selectAll('#line_circle').data(temp_data)
@@ -350,15 +351,15 @@ function Shot_Score_Line(year,position){
           circles_made
             .enter().append('circle')
             .merge(circles_made)
-               .attr('id', 'line_circle')
-               .attr('fill', 'blue')
-               .attr('fill-opacity', 0.6)
-               .attr('r', 3)
-               .on("mouseover", function(d) {
+              .attr('id', 'line_circle')
+              .attr('fill', 'blue')
+              .attr('fill-opacity', 0.6)
+              .attr('r', 3)
+              .on("mouseover", function(d) {
                  tool_tips.transition()
                      .duration(200)
                      .style("opacity", 1);
-                 tool_tips.html("Test Injury")
+                 tool_tips.html(d.value)
                     .style("left", (d3.event.pageX - 20) + "px")
                     .style("top", (d3.event.pageY - 20) + "px");
                  })
@@ -370,6 +371,7 @@ function Shot_Score_Line(year,position){
               .transition(t)
               .attr('cx', d => xScale(parseTime(d.key)))
               .attr('cy', d => yScale(d.value));
+
 
 
           xAxisG.call(xAxis);

@@ -7,39 +7,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- D3.js script -->
-    <script src='https://d3js.org/d3.v4.min.js'></script>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.24.0/d3-legend.min.js'></script>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.24.0/d3-legend.min.js"></script>
     <script src="https://d3js.org/d3-contour.v1.min.js"></script>
     <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
     <script src="https://d3js.org/d3-transition.v1.min.js"></script>
 
 
     <!-- My own script -->
-    <script src='src/Court.js'></script>
-    <script src='src/Shot.js'></script>
-    <script src='src/Slider.js'></script>
-    <script src='src/Table.js'></script>
-    <script src='src/HeatMap.js'></script>
-    <script src='src/Injury.js'></script>
+    <script src="src/Court.js"></script>
+    <script src="src/Shot.js"></script>
+    <script src="src/Slider.js"></script>
+    <script src="src/Table.js"></script>
+    <script src="src/HeatMap.js"></script>
+    <script src="src/Injury.js"></script>
     <script src="src/Line.js"></script>
     <script src="src/RadarChart.js"></script>
 
+    <!-- My own css -->
+    <link rel='stylesheet' href='css/styles.css'>
+
+
+
     <!-- Google Font -->
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700" rel="stylesheet">
 
 
     <!-- Bootstrap -->
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <!-- jQuery (necessary for Bootstrap"s JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
     <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
     <!-- Optional theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
     <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
 
 
 
@@ -50,114 +56,102 @@
   <body>
     <div class="container">
     <div class="title col-sm-8">
-        <h1>Test Layout</h1>
+        <h1 class="display-1">Test Layout</h1>
         <p>This is a template showcasing the final project.</p>
     </div>
   </div>
    <div class="container">
 <div class="row">
 <div class="col-md-5">
-  <div data-spy="affix" data-offset-top="0">
-  <div id="court">
-  <h3 id='caption'></h3>
-  </div>
+  <div id='float_court'>
+    <div id="court">
+    <h3 id="caption"><text></text></h3>
+    </div>
   </div>
 </div>
 
 <div class="col-md-7">
-<div id="lipsum">
+
+  <blockquote class="blockquote text-right">
+    <p class="mb-0"><em>Everything negative - pressure, challenges - is all an opportunity for me to rise.</em></p>
+    <footer class="blockquote-footer"><cite title="Source Title">Kobe Bryant</cite></footer>
+  </blockquote>
+
 <p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas volutpat diam sed massa placerat consequat. Nam posuere cursus sapien eget imperdiet. Sed in vulputate nibh. Integer ligula risus, lacinia a ullamcorper id, semper quis augue. Cras ullamcorper justo id mi ultrices lacinia. Etiam lacus neque, convallis eget lobortis eget, consectetur ut risus. Ut eleifend porta mi, at pharetra massa molestie et. Fusce vel risus odio. Fusce nec porta neque. Etiam gravida, neque quis rutrum rhoncus, nisl nulla iaculis urna, non consectetur risus nibh in justo. Curabitur scelerisque scelerisque ante. Donec volutpat, eros et facilisis fringilla, lorem enim porttitor elit, vel sodales leo augue non dui. Curabitur aliquam, dui vitae ornare lobortis, libero purus commodo turpis, auctor bibendum dolor sapien at risus. Sed risus odio, commodo in viverra vitae, rutrum varius turpis. Praesent magna mauris, tempus in fermentum sit amet, lacinia quis quam. In ornare dignissim augue, id rhoncus turpis consequat sit amet.
+<b>Kobe Bean Bryant</b> (born August 23, 1978) is an American retired professional basketball player and businessman. He played his entire 20-year career with the Los Angeles Lakers of the National Basketball Association (NBA). He entered the NBA directly from high school and won five NBA championships with the Lakers. Bryant is an 18-time All-Star, 15-time member of the All-NBA Team, and 12-time member of the All-Defensive team. He led the NBA in scoring during two seasons, and ranks third on the league"s all-time regular season scoring and fourth on the all-time postseason scoring list. He holds the NBA record for the most seasons playing with one franchise for an entire career, and is widely regarded as one of the best basketball players of all time. Bryant is the first guard in NBA history to play for at least 20 seasons.<sup class="reference"><a href="https://en.wikipedia.org/wiki/Kobe_Bryant">[1]</a></sup>
 </p>
+
 <p>
-Nam posuere placerat tincidunt. Phasellus ut nulla nec nisl commodo sodales in eget orci. Nam eleifend placerat mauris eget lacinia. Sed dolor velit, varius in condimentum non, fermentum quis justo. Vivamus est est, pulvinar ut euismod vitae, dignissim eu ante. Donec blandit tincidunt orci sed dictum. Nulla et diam orci, vitae suscipit elit. Etiam rhoncus posuere massa, at accumsan metus volutpat sed. Nam sit amet nisl magna. In sed metus id nisi rutrum consectetur. Proin nec neque nisi. Nunc elementum, urna eget tempus porttitor, magna enim pellentesque augue, sed auctor orci nibh at magna. Nulla facilisi. Sed auctor orci sed enim dictum convallis. Suspendisse pulvinar magna id ligula semper quis luctus felis rutrum. Cras iaculis massa nec lacus aliquam ullamcorper.
+This is something that I need to write to talk about how Kobe can score
 </p>
+
+<h5 id="line1_caption" class="text-center"><text> Kobe Bryant Point per season</text></h5>
 <svg id="line1">
-  <g id='x_axis'>    <text id='x_label'></text></g>
-  <g id='y_axis'>    <text id='y_label'></text></g>
+  <g id="x_axis">    <text id="x_label"></text></g>
+  <g id="y_axis">    <text id="y_label"></text></g>
 </svg>
+
 <p>
-Cras ac elit vitae est posuere pretium. Aliquam a metus tortor, et aliquet risus. Maecenas erat sem, pulvinar quis ultricies vel, tristique a massa. Sed arcu nunc, interdum in egestas sed, ultricies a metus. Pellentesque at nisi vel erat tristique eleifend et quis ante. In hac habitasse platea dictumst. Ut interdum egestas ante, id volutpat eros tincidunt eget. Nunc eleifend libero ut dolor vehicula at rutrum ipsum ullamcorper. Donec viverra molestie neque a cursus.
+This is part where I talked about Kobe's shot accurary
 </p>
+
 <p>
-In quis auctor felis. Morbi bibendum eleifend purus, ac commodo lorem semper id. Nulla viverra cursus lobortis. Sed vitae dui erat, a sollicitudin metus. Cras nec lacus massa. In hac habitasse platea dictumst. Nullam posuere arcu sed nulla ultrices scelerisque vestibulum lacus convallis. Nulla et leo vitae est porta sollicitudin. Vestibulum turpis massa, facilisis a fringilla vel, consequat at sapien. Quisque dolor lectus, accumsan varius consequat ac, cursus ut risus.
+This is the part where I talked about the injury influence on Kobe
 </p>
+
+<h5 id="line2_caption" class="text-center"><text></text></h5>
 <svg id="line2">
-  <g id='x_axis'>    <text id='x_label'></text></g>
-  <g id='y_axis'>    <text id='y_label'></text></g>
+  <g id="x_axis">    <text id="x_label"></text></g>
+  <g id="y_axis">    <text id="y_label"></text></g>
 </svg>
+
 <p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas condimentum lorem in magna rutrum pellentesque nec et mauris. Sed eget mi at mauris hendrerit tincidunt. Praesent nec iaculis diam. Morbi interdum interdum consectetur. Aenean at massa vel sapien porta posuere. Maecenas ultricies, erat ac posuere fringilla, velit sapien molestie lorem, sed porta ligula quam ac turpis. Maecenas malesuada pellentesque ullamcorper.
+This is another part that I talked about the injury
 </p>
-<p>
-Sed massa mi, mattis nec porttitor vitae, tristique nec mauris. Fusce porta auctor dolor, id iaculis sapien dictum eu. Phasellus consequat volutpat facilisis. Maecenas eget felis non erat sollicitudin placerat eget ut lorem. Vivamus non ipsum non augue faucibus euismod. Cras sit amet nulla dolor, quis laoreet nunc. Suspendisse commodo imperdiet leo eu semper. Pellentesque et velit nibh, vitae porttitor justo.
-</p>
-<p>
-Nulla posuere aliquam pulvinar. Pellentesque sagittis posuere ipsum, id iaculis arcu luctus quis. Suspendisse potenti. Curabitur gravida odio ligula, varius molestie velit. Pellentesque risus tortor, pellentesque vitae faucibus eget, pharetra at diam. Sed suscipit tincidunt turpis vitae pulvinar. Donec vitae nisl enim, nec dictum dolor. Maecenas sagittis tincidunt auctor.
-</p>
-<p>
-Suspendisse potenti. Nunc id condimentum diam. Aliquam fringilla aliquet tempus. Maecenas euismod nisl ac augue gravida ultricies. In hac habitasse platea dictumst. Suspendisse ac felis quam. Pellentesque sollicitudin tellus id erat lobortis congue. Duis sit amet nisi vitae justo gravida luctus eu quis odio. Praesent eleifend odio nec mauris tincidunt sit amet fermentum purus semper. Sed ullamcorper feugiat sem et ultricies. Integer malesuada aliquam lacus. Donec laoreet, lectus vitae fermentum accumsan, neque libero mollis sapien, ut tempor urna sapien non odio. Integer mollis ipsum ac dolor porta fringilla. Sed ut orci et velit malesuada pulvinar.
-</p>
-<p>
-Cras a arcu dui. Donec suscipit diam eget erat varius viverra. Donec blandit, erat vel pellentesque aliquam, felis purus eleifend velit, at dapibus erat ligula ac ipsum. Sed suscipit tellus in leo consequat ac gravida dui pretium. Curabitur ultricies porta congue. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Sed et purus neque, sed mattis nunc. Vestibulum in metus elit, et varius ipsum. Proin et dignissim lacus.
-</p>
+
+<h5 id="line3_caption" class="text-center"><text></text></h5>
 <svg id="line3">
-  <g id='x_axis'>    <text id='x_label'></text></g>
-  <g id='y_axis'>    <text id='y_label'></text></g>
+  <g id="x_axis">    <text id="x_label"></text></g>
+  <g id="y_axis">    <text id="y_label"></text></g>
 </svg>
+
 <p>
-Integer a mi mauris, dapibus dictum dolor. Aliquam erat volutpat. Curabitur consectetur lorem sit amet orci adipiscing rhoncus. Praesent ac quam eget orci semper imperdiet eget non augue. Nunc fermentum ultrices tempus. Ut mauris dolor, imperdiet eget ullamcorper ac, porta et dolor. Donec at urna dolor. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. In hendrerit, felis at vehicula fermentum, turpis erat malesuada sem, ut mollis mauris justo a metus. Ut fringilla iaculis ullamcorper. Vestibulum posuere, lectus eget lacinia scelerisque, elit diam placerat turpis, non ultricies tortor ligula sit amet sapien.
+This is the part I talked about the Algorithm that I used
 </p>
-<p>
-Curabitur suscipit nunc non tortor vestibulum vitae tempus lectus dictum. Duis ut nisl vitae neque vestibulum semper et non sapien. Phasellus feugiat purus nec sapien aliquam ornare. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In at nunc odio, non ornare magna. Nam sit amet cursus dui. Nullam placerat purus sit amet urna mattis euismod. Pellentesque egestas lacinia orci, vitae blandit ipsum blandit vel. Maecenas tincidunt commodo arcu, eu consequat elit ultricies a. Nunc aliquam sapien sit amet nisi tincidunt non lacinia orci commodo. In in ipsum elit, et convallis urna. Sed elementum, purus vel pharetra dapibus, mauris magna laoreet libero, a suscipit nunc orci et risus. Aliquam tincidunt sem vitae diam posuere eget aliquam dolor pellentesque.
-</p>
-<p>
-Donec sagittis elit ut nibh sagittis ac malesuada neque malesuada. Ut auctor iaculis turpis in euismod. Vivamus gravida interdum mi, sed aliquet lectus ultrices eget. Duis eleifend malesuada purus, eu dictum urna posuere vitae. Sed molestie sagittis sodales. Sed feugiat, ante sed lacinia interdum, quam metus lobortis mi, in tempus lectus mi et nunc. Curabitur convallis commodo sapien id porttitor. Ut quam nulla, mollis sit amet consectetur non, bibendum ut felis. Sed sed nunc libero, dapibus semper urna.
-</p>
-<p>
-Ut tempor mollis sodales. Proin adipiscing nunc eros. Quisque leo dolor, condimentum eu egestas a, aliquam eget nisl. Nam neque odio, tincidunt in condimentum et, feugiat vel tellus. Curabitur pellentesque aliquam metus vitae interdum. Quisque placerat interdum tortor non tempor. In hac habitasse platea dictumst.
-</p>
-<p>
-Donec quis sapien vel nunc accumsan venenatis id venenatis sapien. Integer sit amet arcu eros. Aliquam sed est tortor, at luctus orci. Sed consectetur dignissim ante nec cursus. Curabitur consectetur egestas nulla, ut fringilla urna sagittis nec. Morbi ut ante vel enim pulvinar dignissim in et massa. Sed augue ipsum, rhoncus vitae molestie id, volutpat vitae tortor. Donec convallis imperdiet enim sed iaculis.
-</p>
-<p>
-Ut ullamcorper aliquam erat eu commodo. Donec malesuada adipiscing accumsan. Morbi semper mi id nunc porttitor ut consequat velit dictum. Sed viverra sollicitudin ullamcorper. Maecenas blandit fermentum quam. Morbi tempor mattis fringilla. Ut placerat tristique nulla non malesuada. Vivamus fringilla, dolor vel ornare elementum, leo sapien adipiscing enim, ac tempus ipsum urna ut elit.
-</p></div>
-<div class='radarChart'> </div>
+
+<h5 id="radar_caption" class="text-center"><text> Kobe Braynt Radar Chart</text></h5>
+<div class="radarChart"> </div>
 </div>
 </div>
 </div>
 
     <script>
         const margin = { left: 20, right: 20, top: 20, bottom: 20 };
-        var chartDiv = document.getElementById('court');
-        var court = d3.select(chartDiv).append('svg');
-        // var radar = d3.select(chartDiv).append('svg').attr('class', 'radarChart');
+        var chartDiv = document.getElementById("court");
+        var court = d3.select(chartDiv).append("svg");
+        // var radar = d3.select(chartDiv).append("svg").attr("class", "radarChart");
 
-        court.attr('width', 580)
-             .attr('height',500)
+        court.attr("width", 580)
+             .attr("height",500)
              .attr("transform", "translate(0,0)");
 
 
 
-        var heat_g = court.append('g')
-                          .attr('id', 'heat_map');
+        var heat_g = court.append("g")
+                          .attr("id", "heat_map");
 
-        var court_g = court.append('g')
-                           .attr('id', 'basketball_court');
-
-
+        var court_g = court.append("g")
+                           .attr("id", "basketball_court");
 
 
-        var title = d3.select(document.getElementById('caption')).append('text');
 
 
-        var slider_axis = court.append('g')
-                               .attr('class', 'slider-axis');
-        var slider_rect = court.append('g')
-                               .attr('class', 'slider-rect');
+        var slider_axis = court.append("g")
+                               .attr("class", "slider-axis");
+        var slider_rect = court.append("g")
+                               .attr("class", "slider-rect");
 
-        var rect_entity = slider_rect.append('rect');
+        var rect_entity = slider_rect.append("rect");
 
         const court_xScale = d3.scaleLinear()
                                      .domain([-25, 25]);
@@ -171,30 +165,30 @@ Ut ullamcorper aliquam erat eu commodo. Donec malesuada adipiscing accumsan. Mor
         var color = d3.scaleSequential(d3.interpolateOrRd)
                       .domain([5e-6, 3e-2]); // Points per square pixel.
 
-        var tool_tips = d3.select('body').append('div')
-                     .attr('class', 'tooltip')
-                     .style('opacity', 0);
+        var tool_tips = d3.select("body").append("div")
+                     .attr("class", "tooltip")
+                     .style("opacity", 0);
 
 
 
-        var Basket = court_g.append('circle');
-        var Backboard = court_g.append('rect');
-        var Outterbox = court_g.append('rect');
-        var Innerbox = court_g.append('rect');
-        var CornerThreeLeft = court_g.append('rect');
-        var CornerThreeRight = court_g.append('rect');
-        var OuterLine = court_g.append('rect');
-        var RestrictedArea = court_g.append('path')
-        var TopFreeThrow = court_g.append('path')
-        var BottomFreeThrow = court_g.append('path')
-        var ThreeLine = court_g.append('path')
-        var CenterOuter = court_g.append('path')
-        var CenterInner = court_g.append('path')
+        var Basket = court_g.append("circle");
+        var Backboard = court_g.append("rect");
+        var Outterbox = court_g.append("rect");
+        var Innerbox = court_g.append("rect");
+        var CornerThreeLeft = court_g.append("rect");
+        var CornerThreeRight = court_g.append("rect");
+        var OuterLine = court_g.append("rect");
+        var RestrictedArea = court_g.append("path")
+        var TopFreeThrow = court_g.append("path")
+        var BottomFreeThrow = court_g.append("path")
+        var ThreeLine = court_g.append("path")
+        var CenterOuter = court_g.append("path")
+        var CenterInner = court_g.append("path")
 
         var court_width = 480
 
         var t = d3.transition()
-                  .duration(500);
+                  .duration(700);
 
         draw_court();
         Slider();

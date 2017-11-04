@@ -2,6 +2,11 @@ body {
   font-family: 'Open Sans', sans-serif;
 }
 
+#float_court {
+  position: sticky;
+  top: -1px;
+}
+
 .slider rect {
   fill: gray;
   shape-rendering: crispEdges;
@@ -24,4 +29,24 @@ td {
 th {
   padding:4px;
   height: 4ex;
+}
+
+
+div.tooltip {
+    position: absolute;
+    text-align: center;
+    width: 60px;
+    height: 20px;
+    padding: 2px;
+    font: 10pt sans-serif;
+    background: lightsteelblue;
+    border: 0px;
+    border-radius: 8px;
+    pointer-events: none;
+}
+
+
+#x_label, #y_label {
+    fill: #AAAAAA;
+    font-size: 10pt;
 }

@@ -9,7 +9,7 @@ function Stat_Table(year){
       function tabulate(data) {
         d3.select('#stat_table').remove()
 
-        var table = d3.select('#court').append('table').attr('id' ,'stat_table').attr('class', 'table-condensed');
+        var table = d3.select('#court').append('table').attr('id' ,'stat_table').attr('class', 'table-sm');
         var thead_basic = table.append('thead')
         var tbody_basic = table.append('tbody');
         var thead_detail = table.append('thead')
