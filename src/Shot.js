@@ -1,5 +1,5 @@
 function add_shot(year){
-    const width = 480;
+    const width = court_width;
     const height = width/50*47;
 
     const innerWidth = width - margin.left - margin.right;
@@ -34,10 +34,11 @@ function add_shot(year){
               .enter().append('circle')
               .merge(circles_made)
                 .attr('class','circle_made')
+                .transition(t)
                 .attr('cx', d => shot_xScale(d.loc_x))
                 .attr('cy', d => shot_yScale(d.loc_y))
                 .attr('fill', 'green')
-                .attr('fill-opacity', 0.6)
+                .attr('fill-opacity', 0.2)
                 .attr('r', 2);
 
             var circles_miss = court.selectAll('.circle_miss').data(miss.values)
@@ -48,9 +49,10 @@ function add_shot(year){
               .enter().append('path')
               .merge(circles_miss)
                 .attr('class','circle_miss')
+                .transition(t)
                 .attr('transform',function(d,i) { return 'translate('+shot_xScale(d.loc_x)+','+shot_yScale(d.loc_y)+')';})
                 .attr('d', d3.symbol().type(d3.symbols[1]).size(30))
-                .attr('fill-opacity', 0.6)
+                .attr('fill-opacity', 0.2)
                 .attr('fill','red');
           });
 }
