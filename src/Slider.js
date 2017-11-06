@@ -29,8 +29,6 @@ function Slider () {
     Shot_Accu_Line(minDate, 'line2');
     Shot_Score_Line(minDate, 'line3');
 
-
-
     slider_axis
         .attr('class', 'axis')
         .call(d3.axisBottom(scale).ticks(d3.timeYear.every(3)));
@@ -84,8 +82,10 @@ function Slider () {
             // Injurty_Info(value);
             Shot_Accu_Line(value, 'line2');
             Shot_Score_Line(value, 'line3');
+
         }
     }
+
 
 }
 
@@ -119,3 +119,5 @@ function debounceD3Event(func, wait, immediate) {
 
   };
 }
+
+

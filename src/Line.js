@@ -82,24 +82,13 @@ function Shot_Stat_Line(col, position){
             .attr("fill", "blue")
             .attr("fill-opacity", 0.6)
             .attr("r", 3)
-            .on("mouseover", function(d) {
-                tool_tips.transition()
-                    .duration(200)
-                    .style("opacity", 1);
-                tool_tips.html(d[col])
-                   .style("left", (d3.event.pageX - 20) + "px")
-                   .style("top", (d3.event.pageY - 20) + "px");
-                })
-                .on("mouseout", function(d) {
-                  tool_tips.transition()
-                     .duration(500)
-                    .style("opacity", 0);
-                  });
+            .attr("data-toggle", "tooltip")
+            .attr("data-placement", "top")
+            .attr("title", d => d[col])
 
         xAxisG.call(xAxis);
         yAxisG.call(yAxis);
       });
-
 }
 
 //Plot with general update
@@ -226,19 +215,9 @@ function Shot_Accu_Line(year,position){
              .attr("fill", "blue")
              .attr("fill-opacity", 0.6)
              .attr("r", 3)
-             .on("mouseover", function(d) {
-                tool_tips.transition()
-                    .duration(200)
-                    .style("opacity", 1);
-                tool_tips.html(d.values.toPrecision(3))
-                   .style("left", (d3.event.pageX - 20) + "px")
-                   .style("top", (d3.event.pageY - 20) + "px");
-                })
-                .on("mouseout", function(d) {
-                  tool_tips.transition()
-                     .duration(500)
-                    .style("opacity", 0);
-                  })
+             .attr("data-toggle", "tooltip")
+             .attr("data-placement", "top")
+             .attr("title", d => d.values.toPrecision(3))
              .transition(t)
              .attr("cx", d => xScale(parseTime(d.key)))
              .attr("cy", d => yScale(d.values))
@@ -263,25 +242,11 @@ function Shot_Accu_Line(year,position){
                    .attr("y1", yScale(height[0]))
                    .attr("x2", d => xScale(parseTime(d.game_date)))
                    .attr("y2", yScale(height[1]))
-                   .on("mouseover", function(d) {
-                          tool_tips.transition()
-                              .duration(200)
-                              .style("opacity", 1);
-                          tool_tips.html(d.Notes)
-                             .style("left", (d3.event.pageX - 20) + "px")
-                             .style("top", (d3.event.pageY - 20) + "px");
-                          })
-                  .on("mouseout", function(d) {
-                          tool_tips.transition()
-                              .duration(500)
-                              .style("opacity", 0);
+                   .attr("data-toggle", "tooltip")
+                   .attr("data-placement", "top")
+                   .attr("title", d => d.Notes);
                     });
-
-              })
-
       });
-
-
 
 }
 
@@ -393,19 +358,9 @@ function Shot_Score_Line(year,position){
               .attr("fill", "blue")
               .attr("fill-opacity", 0.6)
               .attr("r", 3)
-              .on("mouseover", function(d) {
-                 tool_tips.transition()
-                     .duration(200)
-                     .style("opacity", 1);
-                 tool_tips.html(d.value)
-                    .style("left", (d3.event.pageX - 20) + "px")
-                    .style("top", (d3.event.pageY - 20) + "px");
-                 })
-                 .on("mouseout", function(d) {
-                   tool_tips.transition()
-                      .duration(500)
-                     .style("opacity", 0);
-                   })
+              .attr("data-toggle", "tooltip")
+              .attr("data-placement", "top")
+              .attr("title", d => d.value)
               .transition(t)
               .attr("cx", d => xScale(parseTime(d.key)))
               .attr("cy", d => yScale(d.value));
@@ -426,21 +381,11 @@ function Shot_Score_Line(year,position){
                    .attr("y1", yScale(height[0]))
                    .attr("x2", d => xScale(parseTime(d.game_date)))
                    .attr("y2", yScale(height[1]))
-                   .on("mouseover", function(d) {
-                          tool_tips.transition()
-                              .duration(200)
-                              .style("opacity", 1);
-                          tool_tips.html(d.Notes)
-                             .style("left", (d3.event.pageX - 20) + "px")
-                             .style("top", (d3.event.pageY - 20) + "px");
-                          })
-                  .on("mouseout", function(d) {
-                          tool_tips.transition()
-                              .duration(500)
-                              .style("opacity", 0);
-                    });
+                   .attr("data-toggle", "tooltip")
+                   .attr("data-placement", "top")
+                   .attr("title", d => d.Notes)
 
-              })
+                  })
 
 
           xAxisG.call(xAxis);
@@ -449,7 +394,6 @@ function Shot_Score_Line(year,position){
 
 
       });
-
 
 };
 

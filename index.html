@@ -126,6 +126,8 @@ This is the part I talked about the Algorithm that I used
 </div>
 
     <script>
+
+
         const margin = { left: 20, right: 20, top: 20, bottom: 20 };
         var chartDiv = document.getElementById("court");
         var court = d3.select(chartDiv).append("svg");
@@ -165,12 +167,6 @@ This is the part I talked about the Algorithm that I used
         var color = d3.scaleSequential(d3.interpolateOrRd)
                       .domain([5e-6, 3e-2]); // Points per square pixel.
 
-        var tool_tips = d3.select("body").append("div")
-                     .attr("class", "tooltip")
-                     .style("opacity", 0);
-
-
-
         var Basket = court_g.append("circle");
         var Backboard = court_g.append("rect");
         var Outterbox = court_g.append("rect");
@@ -205,6 +201,10 @@ This is the part I talked about the Algorithm that I used
       //Call function to draw the Radar chart
       RadarChart(".radarChart", data);
 
+      setTimeout(function(){ $(document).ready(function(){
+          $('[data-toggle="tooltip"]').tooltip();
+      }); }, 4000);
     </script>
+
   </body>
 </html>
