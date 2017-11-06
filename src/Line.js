@@ -84,7 +84,7 @@ function Shot_Stat_Line(col, position){
             .attr("r", 3)
             .attr("data-toggle", "tooltip")
             .attr("data-placement", "top")
-            .attr("title", d => d[col])
+            .attr("data-original-title", d => d[col])
 
         xAxisG.call(xAxis);
         yAxisG.call(yAxis);
@@ -217,7 +217,7 @@ function Shot_Accu_Line(year,position){
              .attr("r", 3)
              .attr("data-toggle", "tooltip")
              .attr("data-placement", "top")
-             .attr("title", d => d.values.toPrecision(3))
+             .attr("data-original-title", d => d.values.toPrecision(3))
              .transition(t)
              .attr("cx", d => xScale(parseTime(d.key)))
              .attr("cy", d => yScale(d.values))
@@ -227,7 +227,7 @@ function Shot_Accu_Line(year,position){
           yAxisG.call(yAxis);
 
 
-          d3.csv("data/complete_injury.csv", data => {
+          d3.csv("data/injury.csv", data => {
 
               var temp_data = data.filter(d=>d.season == target_season)
               var injury = temp_g.selectAll("#injury_line").data(temp_data)
@@ -244,7 +244,7 @@ function Shot_Accu_Line(year,position){
                    .attr("y2", yScale(height[1]))
                    .attr("data-toggle", "tooltip")
                    .attr("data-placement", "top")
-                   .attr("title", d => d.Notes);
+                   .attr("data-original-title", d => d.Notes);
                     });
       });
 
@@ -360,13 +360,13 @@ function Shot_Score_Line(year,position){
               .attr("r", 3)
               .attr("data-toggle", "tooltip")
               .attr("data-placement", "top")
-              .attr("title", d => d.value)
+              .attr("data-original-title", d => d.value)
               .transition(t)
               .attr("cx", d => xScale(parseTime(d.key)))
               .attr("cy", d => yScale(d.value));
 
 
-          d3.csv("data/complete_injury.csv", data => {
+          d3.csv("data/injury.csv", data => {
 
               var temp_data = data.filter(d=>d.season == target_season)
               var injury = temp_g.selectAll("#injury_line").data(temp_data)
@@ -383,7 +383,7 @@ function Shot_Score_Line(year,position){
                    .attr("y2", yScale(height[1]))
                    .attr("data-toggle", "tooltip")
                    .attr("data-placement", "top")
-                   .attr("title", d => d.Notes)
+                   .attr("data-original-title", d => d.Notes)
 
                   })
 

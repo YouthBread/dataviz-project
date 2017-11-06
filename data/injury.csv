@@ -1,29 +1,62 @@
-Season,Content
-1996-97,fractured left wrist
-1996-97,strained left hip flexor
-1996-97,flu
-1997-98,sprained right ankle
-1997-98,flu
-1999-00,broken right hand
-2000-01,sprained left ankle
-2001-02,sprained right ankle
-2001-02,viral infection
-2001-02,left ankle injury
-2003-04,arthroscopic surgery on right shoulder to remove inflamed bursa and trim frayed labrum
-2004-05,sprained right shoulder
-2005-06,bruised shin
-2006-07,arthroscopic surgery on right knee to remove scar tissue and loose cartilage
-2006-07,right knee injury
-2006-07,sprained right ankle
-2010-11,swelling in right knee
-2010-11,right index finger injury
-2010-11,arthroscopic surgery on right knee
-2012-13,bruised left shin
-2012-13,left shin injury
-2013-14,sprained left ankle
-2013-14,torn left Achilles tendon
-2013-14,surgery to repair torn left Achilles tendon
-2013-14,fractured left tibia
-2015-16,torn rotator cuff in right shoulder
-2015-16,surgery on right shoulder to repair torn rotator cuff
-2015-16,strained right Achilles
+season,game_date,Notes
+1996-96,19960903,fractured left wrist (out indefinitely)
+1996-97,19961101,strained left hip flexor (DNP)
+1996-97,19961122,flu (DNP)
+1997-98,19971109,sprained right ankle (DTD)
+1997-98,19971111,sprained right ankle (DNP)
+1997-98,19971113,sprained right ankle (DNP)
+1997-98,19971114,sprained right ankle (DNP)
+1997-98,19980506,flu (DNP)
+1997-98,19980508,flu (DNP)
+1998-99,19991014,broken right hand (out 6-8 weeks)
+1999-00,20000609,sprained left ankle (left game)
+1999-00,20000610,sprained left ankle (DNP)
+2000-01,20010221,sprained right ankle (DNP)
+2000-01,20010223,sprained right ankle (DNP)
+2000-01,20010225,sprained right ankle (DNP)
+2000-01,20010311,viral infection (DNP)
+2000-01,20010313,viral infection (DNP)
+2000-01,20010323,sore left foot (DNP)
+2000-01,20010325,left ankle injury (DNP)
+2000-01,20010326,left ankle injury (DNP)
+2000-01,20010328,sore left foot (DNP)
+2000-01,20010330,sore left foot (DNP)
+2000-01,20010403,sore left foot (DNP)
+2000-01,20010405,sore left foot (DNP)
+2000-01,20010408,sore left foot (DNP)
+2002-03,20030612,arthroscopic surgery on right shoulder to remove inflamed bursa and trim frayed labrum (out indefinitely)
+2003-04,20031028,sore right knee (DNP)
+2003-04,20040113,sprained right shoulder (out indefinitely)
+2003-04,20040306,sprained right shoulder (out indefinitely)
+2003-04,20040307,sprained right shoulder (DNP)
+2003-04,20040308,sprained right shoulder (DNP)
+2004-05,20050405,bruised shin (DNP)
+2005-06,20060715,arthroscopic surgery on right knee to remove scar tissue and loose cartilage (out indefinitely)
+2006-07,20061031,right knee injury (DNP)
+2006-07,20061101,right knee injury (DNP)
+2006-07,20061208,sprained right ankle (DNP)
+2009-10,20100408,swelling in right knee (DNP)
+2009-10,20100409,swelling in right knee (DNP)
+2009-10,20100412,right index finger injury (DTD)
+2009-10,20100413,right index finger injury (DNP)
+2009-10,20100414,right index finger injury (DNP)
+2009-10,20100723,arthroscopic surgery on right knee (out indefinitely)
+2011-12,20120407,bruised left shin (DNP)
+2011-12,20120409,sore left shin (DNP)
+2011-12,20120411,left shin injury (DNP)
+2011-12,20120413,left shin injury (DNP)
+2011-12,20120415,left shin injury (DNP)
+2011-12,20120417,left shin injury (DNP)
+2011-12,20120418,left shin injury (DNP)
+2012-13,20130314,sprained left ankle (out indefinitely)
+2012-13,20130317,sprained left ankle (DNP)
+2012-13,20130318,sprained left ankle (DNP)
+2012-13,20130412,torn left Achilles tendon (out indefinitely)
+2012-13,20130413,surgery to repair torn left Achilles tendon (out indefinitely)
+2013-14,20131219,fractured left tibia (out for season)
+2014-15,20141223,general soreness / rest (DTD)
+2014-15,20150122,torn rotator cuff in right shoulder (out for season)
+2014-15,20150128,surgery on right shoulder to repair torn rotator cuff (out for season)
+2015-16,20151219,sore right shoulder (DTD)
+2015-16,20160110,strained right Achilles (DTD)
+2015-16,20160308,sore right shoulder (DTD)

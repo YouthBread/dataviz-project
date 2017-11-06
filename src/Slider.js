@@ -82,7 +82,9 @@ function Slider () {
             // Injurty_Info(value);
             Shot_Accu_Line(value, 'line2');
             Shot_Score_Line(value, 'line3');
-
+      setTimeout(function(){ $(document).ready(function(){
+          $('[data-toggle="tooltip"]').tooltip();
+      }); }, 4000);
         }
     }
 
