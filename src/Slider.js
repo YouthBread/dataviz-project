@@ -69,7 +69,6 @@ function Slider () {
         var x = Math.min(d3.event.x, innerWidth);
                 value = scale.invert(x);
 
-        d3.select('.slider').attr('transform', 'translate(' + Math.max(0,Math.min(x, x-margin.left)) + ',' + innerHeight + ')');
         update_all_plots(value, prev)
             //add_shot(value);
     }
@@ -88,38 +87,43 @@ function Slider () {
         }
     }
 
+    // https://stackoverflow.com/questions/28773113/d3-event-is-null-inside-of-debounced-function
+    function debounceD3Event(func, wait, immediate) {
+      var timeout;
+      return function() {
+        var context = this;
+        var args = arguments;
+        var evt  = d3.event;
 
-}
+        var later = function() {
+          timeout = null;
+          if (!immediate) {
+            var tmpEvent = d3.event;
+            d3.event = evt;
+            func.apply(context, args);
+            d3.event = tmpEvent;
+          }
+        };
 
-// https://stackoverflow.com/questions/28773113/d3-event-is-null-inside-of-debounced-function
-function debounceD3Event(func, wait, immediate) {
-  var timeout;
-  return function() {
-    var context = this;
-    var args = arguments;
-    var evt  = d3.event;
+        var callNow = immediate && !timeout;
 
-    var later = function() {
-      timeout = null;
-      if (!immediate) {
-        var tmpEvent = d3.event;
-        d3.event = evt;
-        func.apply(context, args);
-        d3.event = tmpEvent;
-      }
-    };
+        var x = Math.min(d3.event.x, innerWidth);
+        d3.select('.slider').attr('transform', 'translate(' + Math.max(0,Math.min(x, x-margin.left)) + ',' + innerHeight + ')');
 
-    var callNow = immediate && !timeout;
-    clearTimeout(timeout);
-    timeout = setTimeout(later, wait);
-    if (callNow) {
-      var tmpEvent = d3.event;
-      d3.event = evt;
-      func.apply(context, args);
-      d3.event = tmpEvent;
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+        if (callNow) {
+          var tmpEvent = d3.event;
+          d3.event = evt;
+          func.apply(context, args);
+          d3.event = tmpEvent;
+        }
+
+      };
     }
 
-  };
 }
+
+
 
 
