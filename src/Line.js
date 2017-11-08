@@ -8,7 +8,7 @@ function Shot_Stat_Line(col, position){
       const innerWidth = width - margin.left - margin.right;
       const innerHeight = height - margin.top - margin.bottom;
 
-      const parseTime = d3.timeParse("%Y");
+
       const xScale = d3.scaleTime();
       const yScale = d3.scaleLinear();
 
@@ -145,7 +145,7 @@ function Shot_Accu_Line(year,position){
       d3.csv("data/kobe.csv", data => {
           var temp_data = data.filter(d=>d.season == target_season)
 
-           temp_data = d3.nest()
+          temp_data = d3.nest()
                       .key(function(d) { return d.game_date; })
                       .key(function(d) { return d.shot_made_flag})
                       .rollup(function(leaves) { return leaves.length; })
@@ -308,7 +308,7 @@ function Shot_Score_Line(year,position){
       d3.csv("data/kobe.csv", data => {
           var temp_data = data.filter(d=>d.season == target_season)
 
-           temp_data = d3.nest()
+          temp_data = d3.nest()
                       .key(function(d) { return d.game_date; })
                       .rollup(function(leaves) { return d3.sum(leaves, function(d) {return d.score;})} )
                       .entries(temp_data);

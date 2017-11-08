@@ -14,7 +14,13 @@ function Heat_Map(year){
 
     d3.csv('data/kobe.csv', data => {
             //filtering the unreasonable shot
-            var data = data.filter(d=>d.loc_y < 400)
+            var select_type=d3.select('.btn.btn-secondary.active').text().replace(/^\s+|\s+$/g, '');
+            if (select_type=='All shots') {var data = data}
+            else if (select_type=='Made') {var data = data.filter(d=>d.shot_made_flag == 1)}
+            else {var data = data.filter(d=>d.shot_made_flag == 0)}
+
+
+            data = data.filter(d=>d.loc_y < 400)
             var temp_data = d3.nest()
                       .key(function(d) { return d.season; })
                       .entries(data);

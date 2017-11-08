@@ -1,5 +1,5 @@
 function Slider () {
-    const parseTime = d3.timeParse("%Y");
+
     const width = court_width;
     const height = width/50*47;
     const innerWidth = width - margin.left - margin.right;
@@ -124,6 +124,37 @@ function Slider () {
 
 }
 
+function button_update_all(){
+    var minDate = new Date('1997'),
+            scale = d3.scaleTime()
+                .domain([minDate, d3.timeYear.offset(minDate, 19)])
+                .range([margin.left, innerWidth])
+                .clamp(true),
+
+            format = d3.timeFormat('%Y');
+
+    var title = d3.select("#caption");
+    var prev = title.text().split('-')[0]
+    var x = d3.select('.slider').select('rect').attr('x')
+                value = scale.invert(x);
+    console.log()
+    update_all_plots(value, prev)
+
+    function update_all_plots(value, prev){
+            Heat_Map(value);
+            add_shot(value);
+            Stat_Table(value);
+            // Injurty_Info(value);
+            Shot_Accu_Line(value, 'line2');
+            Shot_Score_Line(value, 'line3');
+      setTimeout(function(){ $(document).ready(function(){
+          $('[data-toggle="tooltip"]').tooltip();
+      }); }, 4000);
+
+    }
+
+
+}
 
 
 

@@ -63,7 +63,18 @@
    <div class="container">
 <div class="row">
 <div class="col-md-5">
-  <div id='float_court'>
+    <div id='float_court'>
+        <div class="btn-group" data-toggle="buttons">
+            <label class="btn btn-secondary active">
+              <input type="radio" name="options" id="option1" autocomplete="off" checked> All shots
+            </label>
+            <label class="btn btn-secondary">
+              <input type="radio" name="options" id="option2" autocomplete="off"> Made
+            </label>
+            <label class="btn btn-secondary">
+              <input type="radio" name="options" id="option2" autocomplete="off"> Missed
+            </label>
+    </div>
     <div id="court">
     <h3 id="caption"><text></text></h3>
     </div>
@@ -132,6 +143,7 @@ This is the part I talked about the Algorithm that I used
         var chartDiv = document.getElementById("court");
         var court = d3.select(chartDiv).append("svg");
         // var radar = d3.select(chartDiv).append("svg").attr("class", "radarChart");
+        const parseTime = d3.timeParse("%Y");
 
         court.attr("width", 580)
              .attr("height",500)
@@ -204,6 +216,10 @@ This is the part I talked about the Algorithm that I used
       setTimeout(function(){ $(document).ready(function(){
           $('[data-toggle="tooltip"]').tooltip();
       }); }, 4000);
+
+      d3.select(".btn-group").selectAll('label').on("click", function() {
+          button_update_all();
+          })
     </script>
 
   </body>
