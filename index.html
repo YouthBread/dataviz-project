@@ -96,7 +96,20 @@
 This is something that I need to write to talk about how Kobe can score
 </p>
 
-<h5 id="line1_caption" class="text-center"><text> Kobe Bryant Point per season</text></h5>
+<h5 id="line1_caption" class="text-center"><text> Kobe Bryant Point per season</text>
+ <div class="btn-group">
+    <button type="button" class="btn btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      Action
+    </button>
+    <div class="dropdown-menu">
+      <a class="dropdown-item" >TRB</a>
+      <a class="dropdown-item" >AST</a>
+      <a class="dropdown-item" >STL</a>
+      <a class="dropdown-item" >PTS</a>
+    </div>
+  </div>
+</h5>
+
 <svg id="line1">
   <g id="x_axis">    <text id="x_label"></text></g>
   <g id="y_axis">    <text id="y_label"></text></g>
@@ -176,8 +189,6 @@ This is the part I talked about the Algorithm that I used
         const shot_yScale = d3.scaleLinear()
                                      .domain([-45,420]);
 
-        var color = d3.scaleSequential(d3.interpolateOrRd)
-                      .domain([5e-6, 3e-2]); // Points per square pixel.
 
         var Basket = court_g.append("circle");
         var Backboard = court_g.append("rect");

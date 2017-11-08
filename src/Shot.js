@@ -19,6 +19,7 @@ function add_shot(year){
             else if (select_type=='Made') {var data = data.filter(d=>d.shot_made_flag == 1)}
             else {var data = data.filter(d=>d.shot_made_flag == 0)}
             //filtering the unreasonable shot
+
             data = data.filter(d=>d.loc_y < 400)
             var temp_data = d3.nest()
                       .key(function(d) { return d.season; })
@@ -28,10 +29,10 @@ function add_shot(year){
 
             temp_data = temp_data.filter(d=>d.key==target);
 
-
+            console.log(temp_data[0])
             if (select_type=='All shots') {
-              var made = temp_data[0].values[0];
-              var miss = temp_data[0].values[1];
+              var miss = temp_data[0].values[0];
+              var made = temp_data[0].values[1];
             } else if (select_type=='Made') {
               var made = temp_data[0].values[0];
               var miss = {'values':[]};

@@ -135,12 +135,11 @@ function button_update_all(){
 
     var title = d3.select("#caption");
     var prev = title.text().split('-')[0]
-    var x = d3.select('.slider').select('rect').attr('x')
-                value = scale.invert(x);
-    console.log()
-    update_all_plots(value, prev)
+    var title_court = d3.select(".col-md-5").select('#caption');
+    value = title_court.text().substring(0,4)
+    update_all_plots(new Date((parseInt(value)+1).toString()))
 
-    function update_all_plots(value, prev){
+    function update_all_plots(value){
             Heat_Map(value);
             add_shot(value);
             Stat_Table(value);

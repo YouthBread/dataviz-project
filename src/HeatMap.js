@@ -15,9 +15,18 @@ function Heat_Map(year){
     d3.csv('data/kobe.csv', data => {
             //filtering the unreasonable shot
             var select_type=d3.select('.btn.btn-secondary.active').text().replace(/^\s+|\s+$/g, '');
-            if (select_type=='All shots') {var data = data}
-            else if (select_type=='Made') {var data = data.filter(d=>d.shot_made_flag == 1)}
-            else {var data = data.filter(d=>d.shot_made_flag == 0)}
+            if (select_type=='All shots') {
+              var data = data;
+              var color = d3.scaleSequential(d3.interpolateOrRd)
+                            .domain([5e-6, 3e-2]);
+            } else if (select_type=='Made') {
+              var data = data.filter(d=>d.shot_made_flag == 1);
+              var color = d3.scaleSequential(d3.interpolateReds)
+                        .domain([5e-6, 3e-2]);
+            } else {
+              var data = data.filter(d=>d.shot_made_flag == 0);
+              color = d3.scaleSequential(d3.interpolateBlues)
+                        .domain([5e-6, 3e-2]);}
 
 
             data = data.filter(d=>d.loc_y < 400)
