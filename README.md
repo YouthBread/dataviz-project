@@ -53,7 +53,7 @@ In order to solve these question, I've created contour map, line chart and scatt
 
 ![layout](https://github.com/YouthBread/kobe-bryant-dataviz-project/blob/master/other_resource/layout.png)
 
-The left part is the contour map, stat table, control button and the slider bar. This part is floating which means while user scrolling down the website, this part will sticky on the left.
+The left part is the contour map, stat table, control button and the slider bar. This part is floating which means while users scrolling down the website, this part will sticky on the left.
 
 The right part is the text information and some line charts. The text will be the analysis based on the visualization.
 
@@ -71,17 +71,23 @@ After few weeks development, I've draw another verison of sketch.
 
 Both sketches play important role during the development of the whole project.\
 
+
+### Interactions
+
+In thir project, right now the main interaction is completed by using control buttons and slider. By clicking the button, the scatter plot and contour map will only display the kind of shot users want to see. By sliding the slider, users can change the default seaon. And the scatter plot, contour map and the line chart will be updated and displayed the data belongs to the season users choose.
+
+
 ### Basketball Court
 
 One of the greatest way to help us visualizing the dataset is to map every shots on the court. The basketball court in this project has the most important role. Many interactions are based on the court canvas. In order to replicate the correct size court, I referenced  [Court Dimension Website](http://www.courtdimensions.net/basketball-court/index.php)
 
 ### Contour Map
 
-In order to solve the question3, my design is to add a heat map on the back of the court. By changing the selection of different season, user can see the change of the heat map which will directly tells you where is the hot zone for Kobe.
+In order to solve the question3, my design is to add a heat map on the back of the court. By changing the selection of different season, users can see the change of the heat map which will directly tells you where is the hot zone for Kobe.
 
 ![contour_map_prototype](https://github.com/YouthBread/kobe-bryant-dataviz-project/blob/master/other_resource/contour_map_prototype.png)
 
-In the prototype, the contour map is controlled by the slider and by defaulting showing all of the shots. In the recent version, I've add control buttons for user to choose whether to display all shots or just those he missed or made.
+In the prototype, the contour map is controlled by the slider and by defaulting showing all of the shots. In the recent version, I've add control buttons for users to choose whether to display all shots or just those he missed or made.
 
 ![contour_map_final](https://github.com/YouthBread/kobe-bryant-dataviz-project/blob/master/other_resource/contour_map_final.png)
 
@@ -89,7 +95,7 @@ In the prototype, the contour map is controlled by the slider and by defaulting 
 
 Besides the contour map, I also added a very low opacity scatter plot to map each shot. In order to differentiate those shot Kobe made and those his missed, I used 2 different marks.
 
-Also, by adding the control buttons, the scatter plot can support for user to choose whether to display all shots or just those he missed or made.
+Also, by adding the control buttons, the scatter plot can support for users to choose whether to display all shots or just those he missed or made.
 
 ![beta](https://github.com/YouthBread/kobe-bryant-dataviz-project/blob/master/other_resource/scatter_plot_final.png)
 
@@ -101,13 +107,13 @@ This is a simple table that can display the average information for certain fiel
 
 ### Line Chart
 
-For this project, I've created some line chart for users to take an insight into Kobe's performance in both season level and career level.
+For this project, I've created some line chart for userss to take an insight into Kobe's performance in both season level and career level.
 
 The first kind of line chart is the line chart that showing the career level stats. The given screenshot is showing the entire career Kobe's points per season.
 
 ![beta](https://github.com/YouthBread/kobe-bryant-dataviz-project/blob/master/other_resource/line_chart_stat.png)
 
-In the future development for this kind of line chart, I'll add a drop down menu for users to choose a different kind of stats that they want to see. As you can see that there is already a menu button displayed right beside the title of line chart.
+In the future development for this kind of line chart, I'll add a drop down menu for userss to choose a different kind of stats that they want to see. As you can see that there is already a menu button displayed right beside the title of line chart.
 
 The second kind of line chart is the line chart that showing the season level stats. The given screenshot is showing the entire season's points per game. Since Kobe is the showing guards, it will be more reasonable for us to pay more attention on the scoring ability per game of him.
 
@@ -125,7 +131,7 @@ Rather than making prediction on winning rate, I’ll do a ranking on the past p
 
 **the content inside the section is still being developed**
 
-## Reference
+# Reference
 
 - The Slider is referencing [Andrew Wang's](https://bl.ocks.org/wonga00) block [Chart Slider](https://bl.ocks.org/wonga00/1e2e28b19129637ff41b986cf0a05aba/68a0f03be6aeefb1f6d008041366fa20542862ed)
 - The function that I use to draw the arc of the court is referencing [virajsanghvi/d3.basketball-shot-chart](https://github.com/virajsanghvi/d3.basketball-shot-chart).
@@ -143,4 +149,12 @@ The project is built and tested using Python web server. After go to the root in
 ```
 python -m http.server
 ```
+
+# Enhancements
+
+- Transition effect: Make you more comfortable exploring the visualizations
+- Using front UI framework: Using Bootstrap for a modern display
+- Better response time: Again, make you more comfortable exploring the visualizations
+
+
 
