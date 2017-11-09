@@ -51,7 +51,7 @@ The remaining dataset will have the following columns,
 
 In order to solve these question, I've created contour map, line chart and scatter plot. And all of these visualizations can be controlled by buttons and slider. The layout for the page is the following,
 
-![beta](https://github.com/YouthBread/kobe-bryant-dataviz-project/blob/master/other_resource/layout.png)
+![layout](https://github.com/YouthBread/kobe-bryant-dataviz-project/blob/master/other_resource/layout.png)
 
 The left part is the contour map, stat table, control button and the slider bar. This part is floating which means while user scrolling down the website, this part will sticky on the left.
 
@@ -61,23 +61,29 @@ The right part is the text information and some line charts. The text will be th
 
 ### Sketches
 
-In the proposal
+In the proposal, I've draw a first verion of sketch.
+
+![Sketch](https://github.com/YouthBread/kobe-bryant-dataviz-project/blob/master/other_resource/sketch_v1.png)
+
+After few weeks development, I've draw another verison of sketch.
+
+![Sketch](https://github.com/YouthBread/kobe-bryant-dataviz-project/blob/master/other_resource/sketch_v2.png)
+
+Both sketches play important role during the development of the whole project.\
 
 ### Basketball Court
 
 One of the greatest way to help us visualizing the dataset is to map every shots on the court. The basketball court in this project has the most important role. Many interactions are based on the court canvas. In order to replicate the correct size court, I referenced  [Court Dimension Website](http://www.courtdimensions.net/basketball-court/index.php)
 
-![beta](https://github.com/YouthBread/kobe-bryant-dataviz-project/blob/master/other_resource/layout.png)
-
 ### Contour Map
 
 In order to solve the question3, my design is to add a heat map on the back of the court. By changing the selection of different season, user can see the change of the heat map which will directly tells you where is the hot zone for Kobe.
 
-![beta](https://github.com/YouthBread/kobe-bryant-dataviz-project/blob/master/other_resource/contour_map_prototype.png)
+![contour_map_prototype](https://github.com/YouthBread/kobe-bryant-dataviz-project/blob/master/other_resource/contour_map_prototype.png)
 
 In the prototype, the contour map is controlled by the slider and by defaulting showing all of the shots. In the recent version, I've add control buttons for user to choose whether to display all shots or just those he missed or made.
 
-![beta](https://github.com/YouthBread/kobe-bryant-dataviz-project/blob/master/other_resource/contour_map_final.png)
+![contour_map_final](https://github.com/YouthBread/kobe-bryant-dataviz-project/blob/master/other_resource/contour_map_final.png)
 
 ### Scatter Plot
 
@@ -105,6 +111,8 @@ In the future development for this kind of line chart, I'll add a drop down menu
 
 The second kind of line chart is the line chart that showing the season level stats. The given screenshot is showing the entire season's points per game. Since Kobe is the showing guards, it will be more reasonable for us to pay more attention on the scoring ability per game of him.
 
+In addition to that, as you can see, the line chart has some red line. Those red lines represents the injury happened in that season. And if you hovering on the red line, you can read the content for that injury.
+
 ![beta](https://github.com/YouthBread/kobe-bryant-dataviz-project/blob/master/other_resource/line_chart_score.png)
 
 ### Radar Chart
@@ -115,7 +123,7 @@ Rather than making prediction on winning rate, I’ll do a ranking on the past p
 
 ![beta](https://github.com/YouthBread/kobe-bryant-dataviz-project/blob/master/other_resource/radar_chart.png)
 
-**the content text inside the page is still being developed**
+**the content inside the section is still being developed**
 
 ## Reference
 
