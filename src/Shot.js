@@ -29,7 +29,6 @@ function add_shot(year){
 
             temp_data = temp_data.filter(d=>d.key==target);
 
-            console.log(temp_data[0])
             if (select_type=='All shots') {
               var miss = temp_data[0].values[0];
               var made = temp_data[0].values[1];

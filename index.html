@@ -64,7 +64,7 @@
 <div class="row">
 <div class="col-md-5">
     <div id='float_court'>
-        <div class="btn-group" data-toggle="buttons">
+        <div class="btn-group" data-toggle="buttons" id="shot_selection">
             <label class="btn btn-secondary active">
               <input type="radio" name="options" id="option1" autocomplete="off" checked> All shots
             </label>
@@ -74,7 +74,7 @@
             <label class="btn btn-secondary">
               <input type="radio" name="options" id="option2" autocomplete="off"> Missed
             </label>
-    </div>
+      </div>
     <div id="court">
     <h3 id="caption"><text></text></h3>
     </div>
@@ -96,19 +96,43 @@
 This is something that I need to write to talk about how Kobe can score
 </p>
 
-<h5 id="line1_caption" class="text-center"><text> Kobe Bryant Point per season</text>
- <div class="btn-group">
-    <button type="button" class="btn btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+<div class="btn-group" id="stat_selection">
+    <button type="button" class="btn btn-sm dropdown-toggle btn-info" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
       Action
     </button>
     <div class="dropdown-menu">
-      <a class="dropdown-item" >TRB</a>
-      <a class="dropdown-item" >AST</a>
-      <a class="dropdown-item" >STL</a>
-      <a class="dropdown-item" >PTS</a>
+      <div class="dropdown-divider"></div>
+      <a class="dropdown-item" >G -- Games</a>
+      <a class="dropdown-item" >MP -- Minutes Played Per Game</a>
+      <div class="dropdown-divider"></div>
+      <a class="dropdown-item" >FG -- Field Goals Per Game</a>
+      <a class="dropdown-item" >FGA -- Field Goal Attempts Per Game</a>
+      <a class="dropdown-item" >FG% -- Field Goal Percentage</a>
+      <a class="dropdown-item" >3P -- 3-Point Field Goals Per Game</a>
+      <a class="dropdown-item" >3PA -- 3-Point Field Goal Attempts Per Game</a>
+      <a class="dropdown-item" >3P% -- 3-Point Field Goal Percentage</a>
+      <a class="dropdown-item" >2P -- 2-Point Field Goals Per Game</a>
+      <a class="dropdown-item" >2PA -- 2-Point Field Goal Attempts Per Game</a>
+      <a class="dropdown-item" >2P% -- 2-Point Field Goal Percentage</a>
+      <a class="dropdown-item" >FT -- Free Throws Per Game</a>
+      <a class="dropdown-item" >FTA -- Free Throw Attempts Per Game</a>
+      <a class="dropdown-item" >FT% -- Free Throw Percentage</a>
+      <div class="dropdown-divider"></div>
+      <a class="dropdown-item" >ORB -- Offensive Rebounds Per Game</a>
+      <a class="dropdown-item" >DRB -- Defensive Rebounds Per Game</a>
+      <a class="dropdown-item" >TRB -- Total Rebounds Per Game</a>
+      <a class="dropdown-item" >AST -- Assists Per Game</a>
+      <a class="dropdown-item" >STL -- Steals Per Game</a>
+      <a class="dropdown-item" >BLK -- Blocks Per Game</a>
+      <a class="dropdown-item" >TOV -- Turnovers Per Game</a>
+      <div class="dropdown-divider"></div>
+      <a class="dropdown-item" >PF -- Personal Fouls Per Game</a>
+      <a class="dropdown-item" >PTS -- Points Per Game</a>
     </div>
-  </div>
-</h5>
+</div>
+
+
+<h5 id="line1_caption" class="text-center"><text> Kobe Bryant Point per season</text></h5>
 
 <svg id="line1">
   <g id="x_axis">    <text id="x_label"></text></g>
@@ -150,7 +174,9 @@ This is the part I talked about the Algorithm that I used
 </div>
 
     <script>
-
+        $(function () {
+            $('[data-toggle="popover"]').popover()
+        })
 
         const margin = { left: 20, right: 20, top: 20, bottom: 20 };
         var chartDiv = document.getElementById("court");
@@ -228,8 +254,11 @@ This is the part I talked about the Algorithm that I used
           $('[data-toggle="tooltip"]').tooltip();
       }); }, 4000);
 
-      d3.select(".btn-group").selectAll('label').on("click", function() {
+      d3.select("#shot_selection").selectAll('label').on("click", function() {
           button_update_all();
+          })
+      d3.select("#stat_selection").selectAll('a').on("click", function() {
+          Shot_Stat_Line(this.text.split(" ")[0], 'line1');
           })
     </script>
 

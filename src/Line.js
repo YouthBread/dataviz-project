@@ -25,6 +25,7 @@ function Shot_Stat_Line(col, position){
         .tickSize(5);
 
       var temp_g = d3.select("#"+position);
+
       temp_g.attr("width", width)
             .attr("height", height);
       const xAxisG = d3.select("#"+position).select("#x_axis")
@@ -64,31 +65,47 @@ function Shot_Stat_Line(col, position){
           .range([innerHeight, margin.top])
           .nice();
 
+        var path_made = temp_g.selectAll("#line_path").data(data)
+        path_made.exit().transition(t).remove();
 
-        temp_g.append("path")
+        path_made.enter().append("path")
+           .merge(path_made)
+           .attr("id", "line_path")
            .attr("fill", "none")
            .attr("stroke", "steelblue")
            .attr("stroke-linejoin", "round")
            .attr("stroke-linecap", "round")
            .attr("stroke-width", 2)
+           .transition(t)
            .attr("d", line(data));
 
+        var circles_made = temp_g.selectAll("#line_circle").data(data)
+        circles_made.exit().transition(t).remove();
 
 
-        temp_g.selectAll("circle").data(data)
+        circles_made
           .enter().append("circle")
-            .attr("cx", d => xScale(parseTime(d.Season.split("-")[0])))
-            .attr("cy", d => yScale(d[col]))
+            .merge(circles_made)
+            .attr("id", "line_circle")
             .attr("fill", "blue")
             .attr("fill-opacity", 0.6)
             .attr("r", 3)
             .attr("data-toggle", "tooltip")
             .attr("data-placement", "top")
             .attr("data-original-title", d => d[col])
+            .transition(t)
+            .attr("cx", d => xScale(parseTime(d.Season.split("-")[0])))
+            .attr("cy", d => yScale(d[col]))
 
         xAxisG.call(xAxis);
         yAxisG.call(yAxis);
       });
+
+      var title_line1 = d3.select("#line1_caption");
+      title_line1.text("Kobe Bryant " + col + " per season")
+                            .attr('x', margin.left)
+                            .attr('y', margin.top);
+
 }
 
 //Plot with general update
@@ -227,25 +244,25 @@ function Shot_Accu_Line(year,position){
           yAxisG.call(yAxis);
 
 
-          d3.csv("data/injury.csv", data => {
+          // d3.csv("data/injury.csv", data => {
 
-              var temp_data = data.filter(d=>d.season == target_season)
-              var injury = temp_g.selectAll("#injury_line").data(temp_data)
-              injury.exit().transition(t).remove();
+          //     var temp_data = data.filter(d=>d.season == target_season)
+          //     var injury = temp_g.selectAll("#injury_line").data(temp_data)
+          //     injury.exit().transition(t).remove();
 
-              injury.enter().merge(injury).append("line")
-                   .attr("id", "injury_line")
-                   .style("stroke", "red")
-                   .style("stroke-linecap", "round")
-                   .style("stroke-width", 1.5)
-                   .attr("x1", d => xScale(parseTime(d.game_date)))
-                   .attr("y1", yScale(height[0]))
-                   .attr("x2", d => xScale(parseTime(d.game_date)))
-                   .attr("y2", yScale(height[1]))
-                   .attr("data-toggle", "tooltip")
-                   .attr("data-placement", "top")
-                   .attr("data-original-title", d => d.Notes);
-                    });
+          //     injury.enter().merge(injury).append("line")
+          //          .attr("id", "injury_line")
+          //          .style("stroke", "red")
+          //          .style("stroke-linecap", "round")
+          //          .style("stroke-width", 1.5)
+          //          .attr("x1", d => xScale(parseTime(d.game_date)))
+          //          .attr("y1", yScale(height[0]))
+          //          .attr("x2", d => xScale(parseTime(d.game_date)))
+          //          .attr("y2", yScale(height[1]))
+          //          .attr("data-toggle", "tooltip")
+          //          .attr("data-placement", "top")
+          //          .attr("data-original-title", d => d.Notes);
+          //           });
       });
 
 }
@@ -366,26 +383,26 @@ function Shot_Score_Line(year,position){
               .attr("cy", d => yScale(d.value));
 
 
-          d3.csv("data/injury.csv", data => {
+          // d3.csv("data/injury.csv", data => {
 
-              var temp_data = data.filter(d=>d.season == target_season)
-              var injury = temp_g.selectAll("#injury_line").data(temp_data)
-              injury.exit().transition(t).remove();
+          //     var temp_data = data.filter(d=>d.season == target_season)
+          //     var injury = temp_g.selectAll("#injury_line").data(temp_data)
+          //     injury.exit().transition(t).remove();
 
-              injury.enter().merge(injury).append("line")
-                   .attr("id", "injury_line")
-                   .style("stroke", "red")
-                   .style("stroke-linecap", "round")
-                   .style("stroke-width", 1.5)
-                   .attr("x1", d => xScale(parseTime(d.game_date)))
-                   .attr("y1", yScale(height[0]))
-                   .attr("x2", d => xScale(parseTime(d.game_date)))
-                   .attr("y2", yScale(height[1]))
-                   .attr("data-toggle", "tooltip")
-                   .attr("data-placement", "top")
-                   .attr("data-original-title", d => d.Notes)
+          //     injury.enter().merge(injury).append("line")
+          //          .attr("id", "injury_line")
+          //          .style("stroke", "red")
+          //          .style("stroke-linecap", "round")
+          //          .style("stroke-width", 1.5)
+          //          .attr("x1", d => xScale(parseTime(d.game_date)))
+          //          .attr("y1", yScale(height[0]))
+          //          .attr("x2", d => xScale(parseTime(d.game_date)))
+          //          .attr("y2", yScale(height[1]))
+          //          .attr("data-toggle", "tooltip")
+          //          .attr("data-placement", "top")
+          //          .attr("data-original-title", d => d.Notes)
 
-                  })
+          //         })
 
 
           xAxisG.call(xAxis);
