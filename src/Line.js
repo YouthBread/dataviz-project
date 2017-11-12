@@ -235,6 +235,14 @@ function Shot_Accu_Line(year,position){
              .attr("data-toggle", "tooltip")
              .attr("data-placement", "top")
              .attr("data-original-title", d => d.values.toPrecision(3))
+              .on("mouseover", function(d) {
+                d3.select("#line2").select('circle[cx="'+this.getAttribute("cx")+'"]').attr("fill", "red").attr('r',5)
+                d3.select("#line3").select('circle[cx="'+this.getAttribute("cx")+'"]').attr("fill", "red").attr('r',5)
+                })
+              .on("mouseout", function(d) {
+                d3.select("#line2").select('circle[cx="'+this.getAttribute("cx")+'"]').attr("fill", "blue").attr('r',3)
+                d3.select("#line3").select('circle[cx="'+this.getAttribute("cx")+'"]').attr("fill", "blue").attr('r',3)
+              })
              .transition(t)
              .attr("cx", d => xScale(parseTime(d.key)))
              .attr("cy", d => yScale(d.values))
@@ -378,6 +386,14 @@ function Shot_Score_Line(year,position){
               .attr("data-toggle", "tooltip")
               .attr("data-placement", "top")
               .attr("data-original-title", d => d.value)
+              .on("mouseover", function(d) {
+                d3.select("#line2").select('circle[cx="'+this.getAttribute("cx")+'"]').attr("fill", "red").attr('r',5)
+                d3.select("#line3").select('circle[cx="'+this.getAttribute("cx")+'"]').attr("fill", "red").attr('r',5)
+                })
+              .on("mouseout", function(d) {
+                d3.select("#line2").select('circle[cx="'+this.getAttribute("cx")+'"]').attr("fill", "blue").attr('r',3)
+                d3.select("#line3").select('circle[cx="'+this.getAttribute("cx")+'"]').attr("fill", "blue").attr('r',3)
+              })
               .transition(t)
               .attr("cx", d => xScale(parseTime(d.key)))
               .attr("cy", d => yScale(d.value));
