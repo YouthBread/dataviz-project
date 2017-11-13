@@ -252,25 +252,25 @@ function Shot_Accu_Line(year,position){
           yAxisG.call(yAxis);
 
 
-          // d3.csv("data/injury.csv", data => {
+          d3.csv("data/injury.csv", data => {
 
-          //     var temp_data = data.filter(d=>d.season == target_season)
-          //     var injury = temp_g.selectAll("#injury_line").data(temp_data)
-          //     injury.exit().transition(t).remove();
+              var temp_data = data.filter(d=>d.season == target_season)
+              var injury = temp_g.selectAll("#injury_line").data(temp_data)
+              injury.exit().transition(t).remove();
 
-          //     injury.enter().merge(injury).append("line")
-          //          .attr("id", "injury_line")
-          //          .style("stroke", "red")
-          //          .style("stroke-linecap", "round")
-          //          .style("stroke-width", 1.5)
-          //          .attr("x1", d => xScale(parseTime(d.game_date)))
-          //          .attr("y1", yScale(height[0]))
-          //          .attr("x2", d => xScale(parseTime(d.game_date)))
-          //          .attr("y2", yScale(height[1]))
-          //          .attr("data-toggle", "tooltip")
-          //          .attr("data-placement", "top")
-          //          .attr("data-original-title", d => d.Notes);
-          //           });
+              injury.enter().merge(injury).append("line")
+                   .attr("id", "injury_line")
+                   .style("stroke", "red")
+                   .style("stroke-linecap", "round")
+                   .style("stroke-width", 1.5)
+                   .attr("x1", d => xScale(parseTime(d.game_date)))
+                   .attr("y1", yScale(height[0]))
+                   .attr("x2", d => xScale(parseTime(d.game_date)))
+                   .attr("y2", yScale(height[1]))
+                   .attr("data-toggle", "tooltip")
+                   .attr("data-placement", "top")
+                   .attr("data-original-title", d => d.Notes);
+                    });
       });
 
 }
@@ -399,26 +399,26 @@ function Shot_Score_Line(year,position){
               .attr("cy", d => yScale(d.value));
 
 
-          // d3.csv("data/injury.csv", data => {
+          d3.csv("data/injury.csv", data => {
 
-          //     var temp_data = data.filter(d=>d.season == target_season)
-          //     var injury = temp_g.selectAll("#injury_line").data(temp_data)
-          //     injury.exit().transition(t).remove();
+              var temp_data = data.filter(d=>d.season == target_season)
+              var injury = temp_g.selectAll("#injury_line").data(temp_data)
+              injury.exit().transition(t).remove();
 
-          //     injury.enter().merge(injury).append("line")
-          //          .attr("id", "injury_line")
-          //          .style("stroke", "red")
-          //          .style("stroke-linecap", "round")
-          //          .style("stroke-width", 1.5)
-          //          .attr("x1", d => xScale(parseTime(d.game_date)))
-          //          .attr("y1", yScale(height[0]))
-          //          .attr("x2", d => xScale(parseTime(d.game_date)))
-          //          .attr("y2", yScale(height[1]))
-          //          .attr("data-toggle", "tooltip")
-          //          .attr("data-placement", "top")
-          //          .attr("data-original-title", d => d.Notes)
+              injury.enter().merge(injury).append("line")
+                   .attr("id", "injury_line")
+                   .style("stroke", "red")
+                   .style("stroke-linecap", "round")
+                   .style("stroke-width", 1.5)
+                   .attr("x1", d => xScale(parseTime(d.game_date)))
+                   .attr("y1", yScale(height[0]))
+                   .attr("x2", d => xScale(parseTime(d.game_date)))
+                   .attr("y2", yScale(height[1]))
+                   .attr("data-toggle", "tooltip")
+                   .attr("data-placement", "top")
+                   .attr("data-original-title", d => d.Notes)
 
-          //         })
+                  })
 
 
           xAxisG.call(xAxis);

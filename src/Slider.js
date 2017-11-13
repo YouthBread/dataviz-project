@@ -23,6 +23,10 @@ function Slider () {
     Heat_Map(minDate);
     add_shot(minDate);
     Stat_Table(minDate);
+    //Call function to draw the Radar chart
+    var target_season = format(minDate)+'-'+(minDate.getFullYear()+1).toString().substring(2, 4);
+    RadarChart(".radarChart", rank_data[target_season]);
+
     // Injurty_Info(minDate);
 
     Shot_Stat_Line('PTS', 'line1');
@@ -81,6 +85,8 @@ function Slider () {
             // Injurty_Info(value);
             Shot_Accu_Line(value, 'line2');
             Shot_Score_Line(value, 'line3');
+            var target_season = format(value)+'-'+(value.getFullYear()+1).toString().substring(2, 4);
+            RadarChart(".radarChart", rank_data[target_season]);
       setTimeout(function(){ $(document).ready(function(){
           $('[data-toggle="tooltip"]').tooltip();
       }); }, 4000);
@@ -146,6 +152,8 @@ function button_update_all(){
             // Injurty_Info(value);
             Shot_Accu_Line(value, 'line2');
             Shot_Score_Line(value, 'line3');
+            var target_season = format(value)+'-'+(value.getFullYear()+1).toString().substring(2, 4);
+            RadarChart(".radarChart", rank_data[target_season]);
       setTimeout(function(){ $(document).ready(function(){
           $('[data-toggle="tooltip"]').tooltip();
       }); }, 4000);

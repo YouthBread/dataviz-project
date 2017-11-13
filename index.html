@@ -178,6 +178,31 @@ This is the part I talked about the Algorithm that I used
             $('[data-toggle="popover"]').popover()
         })
 
+        var carrer_data = {'2P': 7.2999999999999998,
+                           '2P%': 0.47899999999999998,
+                           '2PA': 15.300000000000001,
+                           '3P': 1.3999999999999999,
+                           '3P%': 0.32899999999999996,
+                           '3PA': 4.0999999999999996,
+                           'AST': 4.7000000000000002,
+                           'BLK': 0.5,
+                           'DRB': 4.0999999999999996,
+                           'FG': 8.6999999999999993,
+                           'FG%': 0.44700000000000001,
+                           'FGA': 19.5,
+                           'FT': 6.2000000000000002,
+                           'FT%': 0.83700000000000008,
+                           'FTA': 7.4000000000000004,
+                           'G': 1346,
+                           'MP': 36.100000000000001,
+                           'ORB': 1.1000000000000001,
+                           'PF': 2.5,
+                           'PTS': 25.0,
+                           'STL': 1.3999999999999999,
+                           'TOV': 3.0,
+                           'TRB': 5.2000000000000002,
+                           'eFG%': 0.48200000000000004}
+
         const margin = { left: 20, right: 20, top: 20, bottom: 20 };
         var chartDiv = document.getElementById("court");
         var court = d3.select(chartDiv).append("svg");
@@ -235,20 +260,72 @@ This is the part I talked about the Algorithm that I used
         var t = d3.transition()
                   .duration(700);
 
+        var rank_data = {'1996-97': [[{'axis': 'Offence', 'value': 0.29328621908127206},
+                           {'axis': 'Offence', 'value': 0.2558139534883721},
+                           {'axis': 'Offence', 'value': 0.40350235471629103}]],
+                         '1997-98': [[{'axis': 'Offence', 'value': 0.5147232037691402},
+                           {'axis': 'Offence', 'value': 0.4069767441860466},
+                           {'axis': 'Offence', 'value': 0.6434776644872205}]],
+                         '1998-99': [[{'axis': 'Offence', 'value': 0.7084805653710247},
+                           {'axis': 'Offence', 'value': 0.7674418604651163},
+                           {'axis': 'Offence', 'value': 0.9185679667139134}]],
+                         '1999-00': [[{'axis': 'Offence', 'value': 0.8133097762073026},
+                           {'axis': 'Offence', 'value': 0.8372093023255814},
+                           {'axis': 'Offence', 'value': 0.9251063051529423}]],
+                         '2000-01': [[{'axis': 'Offence', 'value': 0.929328621908127},
+                           {'axis': 'Offence', 'value': 0.7674418604651163},
+                           {'axis': 'Offence', 'value': 0.98738054958621}]],
+                         '2001-02': [[{'axis': 'Offence', 'value': 0.8828032979976442},
+                           {'axis': 'Offence', 'value': 0.6976744186046512},
+                           {'axis': 'Offence', 'value': 0.9273924374742811}]],
+                         '2002-03': [[{'axis': 'Offence', 'value': 1.0},
+                           {'axis': 'Offence', 'value': 1.0},
+                           {'axis': 'Offence', 'value': 1.0}]],
+                         '2003-04': [[{'axis': 'Offence', 'value': 0.8339222614840989},
+                           {'axis': 'Offence', 'value': 0.6976744186046512},
+                           {'axis': 'Offence', 'value': 0.9103607516803073}]],
+                         '2004-05': [[{'axis': 'Offence', 'value': 0.9888103651354533},
+                           {'axis': 'Offence', 'value': 0.7674418604651164},
+                           {'axis': 'Offence', 'value': 0.9808193498239678}]],
+                         '2005-06': [[{'axis': 'Offence', 'value': 0.9764428739693758},
+                           {'axis': 'Offence', 'value': 0.7674418604651164},
+                           {'axis': 'Offence', 'value': 0.9892780394129213}]],
+                         '2006-07': [[{'axis': 'Offence', 'value': 0.9605418138987044},
+                           {'axis': 'Offence', 'value': 0.7674418604651163},
+                           {'axis': 'Offence', 'value': 0.9860088701934067}]],
+                         '2007-08': [[{'axis': 'Offence', 'value': 0.9040047114252061},
+                           {'axis': 'Offence', 'value': 0.8720930232558141},
+                           {'axis': 'Offence', 'value': 0.9417036258058614}]],
+                         '2008-09': [[{'axis': 'Offence', 'value': 0.8415783274440518},
+                           {'axis': 'Offence', 'value': 0.7093023255813954},
+                           {'axis': 'Offence', 'value': 0.8783548991815646}]],
+                         '2009-10': [[{'axis': 'Offence', 'value': 0.8863368669022379},
+                           {'axis': 'Offence', 'value': 0.7093023255813954},
+                           {'axis': 'Offence', 'value': 0.9382744273238536}]],
+                         '2010-11': [[{'axis': 'Offence', 'value': 0.8274440518256773},
+                           {'axis': 'Offence', 'value': 0.627906976744186},
+                           {'axis': 'Offence', 'value': 0.8265054181336018}]],
+                         '2011-12': [[{'axis': 'Offence', 'value': 0.9057714958775028},
+                           {'axis': 'Offence', 'value': 0.6744186046511628},
+                           {'axis': 'Offence', 'value': 0.9304787161080883}]],
+                         '2012-13': [[{'axis': 'Offence', 'value': 0.9334511189634864},
+                           {'axis': 'Offence', 'value': 0.744186046511628},
+                           {'axis': 'Offence', 'value': 0.9353939005989668}]],
+                         '2013-14': [[{'axis': 'Offence', 'value': 0.8227326266195523},
+                           {'axis': 'Offence', 'value': 0.627906976744186},
+                           {'axis': 'Offence', 'value': 0.7251154496822277}]],
+                         '2014-15': [[{'axis': 'Offence', 'value': 0.8745583038869258},
+                           {'axis': 'Offence', 'value': 0.744186046511628},
+                           {'axis': 'Offence', 'value': 0.8343925746422204}]],
+                         '2015-16': [[{'axis': 'Offence', 'value': 0.570082449941107},
+                           {'axis': 'Offence', 'value': 0.48837209302325585},
+                           {'axis': 'Offence', 'value': 0.6906634355996526}]]}
+
         draw_court();
         Slider();
 
-        var data = [
-            [
-            {axis:"Offence",value:0.89},
-            {axis:"Deffence",value:0.28},
-            {axis:"Efficency",value:0.29},
-            ]
-          ];
 
 
-      //Call function to draw the Radar chart
-      RadarChart(".radarChart", data);
 
       setTimeout(function(){ $(document).ready(function(){
           $('[data-toggle="tooltip"]').tooltip();
