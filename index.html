@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Kobe Bryant NBA carrer</title>
+    <title>Kobe Bryant</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -55,9 +55,9 @@
 
   <body>
     <div class="container">
-    <div class="title col-sm-8">
-        <h1 class="display-1">Test Layout</h1>
-        <p>This is a template showcasing the final project.</p>
+    <div class="title col-sm-12">
+        <h1 class="display-1">Kobe Bryant NBA Career</h1>
+        <p>This is an insight into Kobe Bryant's NBA journey.</p>
     </div>
   </div>
    <div class="container">
@@ -93,7 +93,7 @@
 </p>
 
 <p>
-This is something that I need to write to talk about how Kobe can score
+Kobe is the one of the best NBA players we have seen and somebody even cliam that his is the greatest NBA player of all time. And sure, Kobe can do what ever he wants on the field and he can helphis team to win. The following is the line chart for different categories of stats for Kobe during all his career.
 </p>
 
 <div class="btn-group" id="stat_selection">
@@ -140,22 +140,16 @@ This is something that I need to write to talk about how Kobe can score
 </svg>
 
 <p>
-This is part where I talked about Kobe's shot accurary
+Kobe is famous for the ability of scoring. Kobe led the NBA in scoring during the 2005–06 and 2006–07 seasons. In 2006, he scored a career-high 81 points against the Toronto Raptors, the second most points scored in a single game in league history behind Wilt Chamberlain's 100-point game in 1962.<sup class="reference"><a href="https://en.wikipedia.org/wiki/Kobe_Bryant">[2]</a></sup> And now let's take a look at the scoring map for the selcting season.
 </p>
 
-<p>
-This is the part where I talked about the injury influence on Kobe
-</p>
+
 
 <h5 id="line2_caption" class="text-center"><text></text></h5>
 <svg id="line2">
   <g id="x_axis">    <text id="x_label"></text></g>
   <g id="y_axis">    <text id="y_label"></text></g>
 </svg>
-
-<p>
-This is another part that I talked about the injury
-</p>
 
 <h5 id="line3_caption" class="text-center"><text></text></h5>
 <svg id="line3">
@@ -164,8 +158,28 @@ This is another part that I talked about the injury
 </svg>
 
 <p>
-This is the part I talked about the Algorithm that I used
+The above 2 line chart is the scoring and accuracy for selecting seaon. And you can see from the first line chart, there is a red line which indicates the injury incidents happened. As we all know that injury is the worst thing that could happen to a professional player. And these injury can lead to a down performance on the field. And this visualization is trying to find some connectino on this.
 </p>
+
+  <blockquote class="blockquote text-right">
+    <p class="mb-0"><em>"For a brief moment, it was the first time that I saw doubt -- not defeat, but doubt -- on his face," Vitti says today. "Like, 'Oh, this actually could be it.' It's an Achilles. It's interesting. If you ask him this, that his Achilles was bothering him, he'll tell you the opposite, and that's what scared him about this. It was injury without any forewarning."<sup class="reference"><a href="http://www.espn.com/nba/story/_/id/15186931/last-true-days-kobe-bryant">[2]</a></sup></em></p>
+  </blockquote>
+
+<p>
+At the end, I try to quantify the performance of Kobe in different season. I'm not a sports expert and I'm not great at ranking a player. But I use what I'm understading for the basketball to tell you how Kobe perform for each season.
+</p>
+
+<p>
+For each season, based on the stats, I catrgorize them into 3 different categories: Offense, Defence and Efficency. For each category, the combination is the following,</p>
+<dl class="row">
+    <dt class="col-sm-4">Offense</dt>
+    <dd class="col-sm-8">Offensive Rebounds, Assists, Turnovers, Attempts and goals for Free Throws, Field Goals and 3-Point Field Goals</dd>
+    <dt class="col-sm-4">Defense</dt>
+    <dd class="col-sm-8">Defensive Rebounds, Steals, Blocks</dd>
+    <dt class="col-sm-4">Efficency</dt>
+    <dd class="col-sm-8">Minutes Played, Accuracy for Free Throws, Field Goals and 3-Point Field Goals</dd>
+</dl>
+
 
 <h5 id="radar_caption" class="text-center"><text> Kobe Braynt Radar Chart</text></h5>
 <div class="radarChart"> </div>
@@ -178,7 +192,7 @@ This is the part I talked about the Algorithm that I used
             $('[data-toggle="popover"]').popover()
         })
 
-        var carrer_data = {'2P': 7.2999999999999998,
+        var career_data = {'2P': 7.2999999999999998,
                            '2P%': 0.47899999999999998,
                            '2PA': 15.300000000000001,
                            '3P': 1.3999999999999999,
@@ -260,66 +274,66 @@ This is the part I talked about the Algorithm that I used
         var t = d3.transition()
                   .duration(700);
 
-        var rank_data = {'1996-97': [[{'axis': 'Offence', 'value': 0.29328621908127206},
-                           {'axis': 'Offence', 'value': 0.2558139534883721},
-                           {'axis': 'Offence', 'value': 0.40350235471629103}]],
-                         '1997-98': [[{'axis': 'Offence', 'value': 0.5147232037691402},
-                           {'axis': 'Offence', 'value': 0.4069767441860466},
-                           {'axis': 'Offence', 'value': 0.6434776644872205}]],
-                         '1998-99': [[{'axis': 'Offence', 'value': 0.7084805653710247},
-                           {'axis': 'Offence', 'value': 0.7674418604651163},
-                           {'axis': 'Offence', 'value': 0.9185679667139134}]],
-                         '1999-00': [[{'axis': 'Offence', 'value': 0.8133097762073026},
-                           {'axis': 'Offence', 'value': 0.8372093023255814},
-                           {'axis': 'Offence', 'value': 0.9251063051529423}]],
-                         '2000-01': [[{'axis': 'Offence', 'value': 0.929328621908127},
-                           {'axis': 'Offence', 'value': 0.7674418604651163},
-                           {'axis': 'Offence', 'value': 0.98738054958621}]],
-                         '2001-02': [[{'axis': 'Offence', 'value': 0.8828032979976442},
-                           {'axis': 'Offence', 'value': 0.6976744186046512},
-                           {'axis': 'Offence', 'value': 0.9273924374742811}]],
-                         '2002-03': [[{'axis': 'Offence', 'value': 1.0},
-                           {'axis': 'Offence', 'value': 1.0},
-                           {'axis': 'Offence', 'value': 1.0}]],
-                         '2003-04': [[{'axis': 'Offence', 'value': 0.8339222614840989},
-                           {'axis': 'Offence', 'value': 0.6976744186046512},
-                           {'axis': 'Offence', 'value': 0.9103607516803073}]],
-                         '2004-05': [[{'axis': 'Offence', 'value': 0.9888103651354533},
-                           {'axis': 'Offence', 'value': 0.7674418604651164},
-                           {'axis': 'Offence', 'value': 0.9808193498239678}]],
-                         '2005-06': [[{'axis': 'Offence', 'value': 0.9764428739693758},
-                           {'axis': 'Offence', 'value': 0.7674418604651164},
-                           {'axis': 'Offence', 'value': 0.9892780394129213}]],
-                         '2006-07': [[{'axis': 'Offence', 'value': 0.9605418138987044},
-                           {'axis': 'Offence', 'value': 0.7674418604651163},
-                           {'axis': 'Offence', 'value': 0.9860088701934067}]],
-                         '2007-08': [[{'axis': 'Offence', 'value': 0.9040047114252061},
-                           {'axis': 'Offence', 'value': 0.8720930232558141},
-                           {'axis': 'Offence', 'value': 0.9417036258058614}]],
-                         '2008-09': [[{'axis': 'Offence', 'value': 0.8415783274440518},
-                           {'axis': 'Offence', 'value': 0.7093023255813954},
-                           {'axis': 'Offence', 'value': 0.8783548991815646}]],
-                         '2009-10': [[{'axis': 'Offence', 'value': 0.8863368669022379},
-                           {'axis': 'Offence', 'value': 0.7093023255813954},
-                           {'axis': 'Offence', 'value': 0.9382744273238536}]],
-                         '2010-11': [[{'axis': 'Offence', 'value': 0.8274440518256773},
-                           {'axis': 'Offence', 'value': 0.627906976744186},
-                           {'axis': 'Offence', 'value': 0.8265054181336018}]],
-                         '2011-12': [[{'axis': 'Offence', 'value': 0.9057714958775028},
-                           {'axis': 'Offence', 'value': 0.6744186046511628},
-                           {'axis': 'Offence', 'value': 0.9304787161080883}]],
-                         '2012-13': [[{'axis': 'Offence', 'value': 0.9334511189634864},
-                           {'axis': 'Offence', 'value': 0.744186046511628},
-                           {'axis': 'Offence', 'value': 0.9353939005989668}]],
-                         '2013-14': [[{'axis': 'Offence', 'value': 0.8227326266195523},
-                           {'axis': 'Offence', 'value': 0.627906976744186},
-                           {'axis': 'Offence', 'value': 0.7251154496822277}]],
-                         '2014-15': [[{'axis': 'Offence', 'value': 0.8745583038869258},
-                           {'axis': 'Offence', 'value': 0.744186046511628},
-                           {'axis': 'Offence', 'value': 0.8343925746422204}]],
-                         '2015-16': [[{'axis': 'Offence', 'value': 0.570082449941107},
-                           {'axis': 'Offence', 'value': 0.48837209302325585},
-                           {'axis': 'Offence', 'value': 0.6906634355996526}]]}
+        var rank_data = {'1996-97': [[{'axis': 'Offense', 'value': 0.29328621908127206},
+                           {'axis': 'Defence', 'value': 0.2558139534883721},
+                           {'axis': 'Efficiency', 'value': 0.40350235471629103}]],
+                         '1997-98': [[{'axis': 'Offense', 'value': 0.5147232037691402},
+                           {'axis': 'Defence', 'value': 0.4069767441860466},
+                           {'axis': 'Efficiency', 'value': 0.6434776644872205}]],
+                         '1998-99': [[{'axis': 'Offense', 'value': 0.7084805653710247},
+                           {'axis': 'Defence', 'value': 0.7674418604651163},
+                           {'axis': 'Efficiency', 'value': 0.9185679667139134}]],
+                         '1999-00': [[{'axis': 'Offense', 'value': 0.8133097762073026},
+                           {'axis': 'Defence', 'value': 0.8372093023255814},
+                           {'axis': 'Efficiency', 'value': 0.9251063051529423}]],
+                         '2000-01': [[{'axis': 'Offense', 'value': 0.929328621908127},
+                           {'axis': 'Defence', 'value': 0.7674418604651163},
+                           {'axis': 'Efficiency', 'value': 0.98738054958621}]],
+                         '2001-02': [[{'axis': 'Offense', 'value': 0.8828032979976442},
+                           {'axis': 'Defence', 'value': 0.6976744186046512},
+                           {'axis': 'Efficiency', 'value': 0.9273924374742811}]],
+                         '2002-03': [[{'axis': 'Offense', 'value': 1.0},
+                           {'axis': 'Defence', 'value': 1.0},
+                           {'axis': 'Efficiency', 'value': 1.0}]],
+                         '2003-04': [[{'axis': 'Offense', 'value': 0.8339222614840989},
+                           {'axis': 'Defence', 'value': 0.6976744186046512},
+                           {'axis': 'Efficiency', 'value': 0.9103607516803073}]],
+                         '2004-05': [[{'axis': 'Offense', 'value': 0.9888103651354533},
+                           {'axis': 'Defence', 'value': 0.7674418604651164},
+                           {'axis': 'Efficiency', 'value': 0.9808193498239678}]],
+                         '2005-06': [[{'axis': 'Offense', 'value': 0.9764428739693758},
+                           {'axis': 'Defence', 'value': 0.7674418604651164},
+                           {'axis': 'Efficiency', 'value': 0.9892780394129213}]],
+                         '2006-07': [[{'axis': 'Offense', 'value': 0.9605418138987044},
+                           {'axis': 'Defence', 'value': 0.7674418604651163},
+                           {'axis': 'Efficiency', 'value': 0.9860088701934067}]],
+                         '2007-08': [[{'axis': 'Offense', 'value': 0.9040047114252061},
+                           {'axis': 'Defence', 'value': 0.8720930232558141},
+                           {'axis': 'Efficiency', 'value': 0.9417036258058614}]],
+                         '2008-09': [[{'axis': 'Offense', 'value': 0.8415783274440518},
+                           {'axis': 'Defence', 'value': 0.7093023255813954},
+                           {'axis': 'Efficiency', 'value': 0.8783548991815646}]],
+                         '2009-10': [[{'axis': 'Offense', 'value': 0.8863368669022379},
+                           {'axis': 'Defence', 'value': 0.7093023255813954},
+                           {'axis': 'Efficiency', 'value': 0.9382744273238536}]],
+                         '2010-11': [[{'axis': 'Offense', 'value': 0.8274440518256773},
+                           {'axis': 'Defence', 'value': 0.627906976744186},
+                           {'axis': 'Efficiency', 'value': 0.8265054181336018}]],
+                         '2011-12': [[{'axis': 'Offense', 'value': 0.9057714958775028},
+                           {'axis': 'Defence', 'value': 0.6744186046511628},
+                           {'axis': 'Efficiency', 'value': 0.9304787161080883}]],
+                         '2012-13': [[{'axis': 'Offense', 'value': 0.9334511189634864},
+                           {'axis': 'Defence', 'value': 0.744186046511628},
+                           {'axis': 'Efficiency', 'value': 0.9353939005989668}]],
+                         '2013-14': [[{'axis': 'Offense', 'value': 0.8227326266195523},
+                           {'axis': 'Defence', 'value': 0.627906976744186},
+                           {'axis': 'Efficiency', 'value': 0.7251154496822277}]],
+                         '2014-15': [[{'axis': 'Offense', 'value': 0.8745583038869258},
+                           {'axis': 'Defence', 'value': 0.744186046511628},
+                           {'axis': 'Efficiency', 'value': 0.8343925746422204}]],
+                         '2015-16': [[{'axis': 'Offense', 'value': 0.570082449941107},
+                           {'axis': 'Defence', 'value': 0.48837209302325585},
+                           {'axis': 'Efficiency', 'value': 0.6906634355996526}]]}
 
         draw_court();
         Slider();

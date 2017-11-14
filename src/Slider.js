@@ -30,8 +30,8 @@ function Slider () {
     // Injurty_Info(minDate);
 
     Shot_Stat_Line('PTS', 'line1');
-    Shot_Accu_Line(minDate, 'line2');
-    Shot_Score_Line(minDate, 'line3');
+    Shot_Score_Line(minDate, 'line2');
+    Shot_Accu_Line(minDate, 'line3');
 
     slider_axis
         .attr('class', 'axis')
@@ -54,15 +54,16 @@ function Slider () {
                             .attr('x', margin.left)
                             .attr('y', margin.top);
 
-        var title_line2 = d3.select("#line2_caption");
+        var title_line3 = d3.select("#line2_caption");
+        title_line3.text(format(date)+'-'+(date.getFullYear()+1).toString()+' season score per game')
+                            .attr('x', margin.left)
+                            .attr('y', margin.top);
+
+        var title_line2 = d3.select("#line3_caption");
         title_line2.text(format(date)+'-'+(date.getFullYear()+1).toString()+' season shoting accuracy per game')
                             .attr('x', margin.left)
                             .attr('y', margin.top);
 
-        var title_line3 = d3.select("#line3_caption");
-        title_line3.text(format(date)+'-'+(date.getFullYear()+1).toString()+' season score per game')
-                            .attr('x', margin.left)
-                            .attr('y', margin.top);
 
     }
 
@@ -83,8 +84,8 @@ function Slider () {
             add_shot(value);
             Stat_Table(value);
             // Injurty_Info(value);
-            Shot_Accu_Line(value, 'line2');
-            Shot_Score_Line(value, 'line3');
+            Shot_Score_Line(value, 'line2');
+            Shot_Accu_Line(value, 'line3');
             var target_season = format(value)+'-'+(value.getFullYear()+1).toString().substring(2, 4);
             RadarChart(".radarChart", rank_data[target_season]);
       setTimeout(function(){ $(document).ready(function(){
@@ -150,8 +151,8 @@ function button_update_all(){
             add_shot(value);
             Stat_Table(value);
             // Injurty_Info(value);
-            Shot_Accu_Line(value, 'line2');
-            Shot_Score_Line(value, 'line3');
+            Shot_Score_Line(value, 'line2');
+            Shot_Accu_Line(value, 'line3');
             var target_season = format(value)+'-'+(value.getFullYear()+1).toString().substring(2, 4);
             RadarChart(".radarChart", rank_data[target_season]);
       setTimeout(function(){ $(document).ready(function(){
