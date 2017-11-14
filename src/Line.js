@@ -50,7 +50,7 @@ function Shot_Stat_Line(col, position){
       var line = d3.line()
               .curve(d3.curveMonotoneX)
               .x(function(d) {return xScale(parseTime(d.Season.split("-")[0]))})
-              .y(function(d) {return yScale(d[col])});
+              .y(function(d) {return yScale(d.col)});
 
 
       d3.csv("data/stat.csv", data => {
@@ -65,7 +65,10 @@ function Shot_Stat_Line(col, position){
           .range([innerHeight, margin.top])
           .nice();
 
-        var path_made = temp_g.selectAll("#line_path").data(data)
+
+        temp_data = data.map(function(d) { return { Season: d.Season, col: d[col]}})
+
+        var path_made = temp_g.selectAll("#line_path").data([temp_data])
         path_made.exit().transition(t).remove();
 
         path_made.enter().append("path")
@@ -77,7 +80,7 @@ function Shot_Stat_Line(col, position){
            .attr("stroke-linecap", "round")
            .attr("stroke-width", 2)
            .transition(t)
-           .attr("d", line(data));
+           .attr("d", line(temp_data));
 
         var circles_made = temp_g.selectAll("#line_circle").data(data)
         circles_made.exit().transition(t).remove();
@@ -96,6 +99,27 @@ function Shot_Stat_Line(col, position){
             .transition(t)
             .attr("cx", d => xScale(parseTime(d.Season.split("-")[0])))
             .attr("cy", d => yScale(d[col]))
+
+
+
+        var stat_path = temp_g.selectAll("#avg_line").data([career_data])
+        stat_path.exit().transition(t).remove();
+
+        stat_path.enter().append("line")
+                  .merge(stat_path)
+                   .attr("id", "avg_line")
+                   .style("stroke", "red")
+                   .style("stroke-linecap", "round")
+                   .style("stroke-width", 3)
+                   .transition(t)
+                   .attr("x1", xScale(xScale.domain()[0]))
+                   .attr("y1", yScale(career_data[col]))
+                   .attr("x2", xScale(xScale.domain()[1]))
+                   .attr("y2", yScale(career_data[col]))
+                   .attr("data-toggle", "tooltip")
+                   .attr("data-placement", "top")
+                   .attr("data-original-title", "Career Average:"+ career_data[col])
+
 
         xAxisG.call(xAxis);
         yAxisG.call(yAxis);
@@ -246,7 +270,6 @@ function Shot_Accu_Line(year,position){
              .transition(t)
              .attr("cx", d => xScale(parseTime(d.key)))
              .attr("cy", d => yScale(d.values))
-
 
           xAxisG.call(xAxis);
           yAxisG.call(yAxis);
@@ -426,6 +449,7 @@ function Shot_Score_Line(year,position){
                    .style("stroke", "red")
                    .style("stroke-linecap", "round")
                    .style("stroke-width", 1.5)
+                   .transition(t)
                    .attr("x1", function (d){
                     if (parseTime(d.game_date) > xScale.domain()[1]){
                       return xScale(xScale.domain()[1])
