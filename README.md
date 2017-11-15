@@ -113,7 +113,7 @@ The first kind of line chart is the line chart that showing the career level sta
 
 ![beta](https://github.com/YouthBread/kobe-bryant-dataviz-project/blob/master/other_resource/line_chart_stat.png)
 
-In the future development for this kind of line chart, I'll add a drop down menu for userss to choose a different kind of stats that they want to see. As you can see that there is already a menu button displayed right beside the title of line chart.
+In the final verison, I've added a drop down menu for userss to choose a different kind of stats that they want to see. As you can see that there is already a menu button displayed right beside the title of line chart. And the corresponding circle standing for the selecting seaon will also be highlighted.
 
 The second kind of line chart is the line chart that showing the season level stats. The given screenshot is showing the entire season's points per game. Since Kobe is the showing guards, it will be more reasonable for us to pay more attention on the scoring ability per game of him.
 
@@ -129,7 +129,13 @@ Rather than making prediction on winning rate, I’ll do a ranking on the past p
 
 ![beta](https://github.com/YouthBread/kobe-bryant-dataviz-project/blob/master/other_resource/radar_chart.png)
 
-**the content inside the section is still being developed**
+Ctegory | Stats
+------------ | -------------
+Offense | Offensive Rebounds, Assists, Turnovers, Attempts and goals for Free Throws, Field Goals and 3-Point Field Goals
+Defense | Defensive Rebounds, Steals, Blocks
+Efficency | Minutes Played, Accuracy for Free Throws, Field Goals and 3-Point Field Goals
+
+I assign the weight to each stats catrory then comparing with the career median data which will result the rank for that season.
 
 # Reference
 
@@ -138,7 +144,7 @@ Rather than making prediction on winning rate, I’ll do a ranking on the past p
 - The size of the court is referencing [Basketball Court Dimensions & Measurements](http://www.courtdimensions.net/basketball-court/index.php)
 - The player season stats is referencing [Basketball reference](https://www.basketball-reference.com/players/b/bryanko01.html)
 - The debounce function is referencing [Stackoverflow Question](https://stackoverflow.com/questions/28773113/d3-event-is-null-inside-of-debounced-function)
-- The radar chart is referencing [[Nadieh Bremer](http://bl.ocks.org/nbremer)’](http://bl.ocks.org/nbremer/21746a9668ffdf6d8242)
+- The radar chart is referencing [Nadieh Bremer](http://bl.ocks.org/nbremer/21746a9668ffdf6d8242)
 
 
 
