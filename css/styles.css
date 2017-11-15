@@ -1,37 +1,40 @@
 body {
-  font-family: 'Open Sans', sans-serif;
+    font-family: 'Open Sans', sans-serif;
 }
 
 #float_court {
-  position: sticky;
-  top: -1px;
+    position: sticky;
+    top: -1px;
 }
 
 .slider rect {
-  fill: gray;
-  shape-rendering: crispEdges;
+    fill: gray;
+    shape-rendering: crispEdges;
 }
 
 .slider line {
-  fill: none;
-  stroke: red;
-  opacity: 0.3;
-  shape-rendering: crispEdges;
+    fill: none;
+    stroke: red;
+    opacity: 0.3;
+    shape-rendering: crispEdges;
 }
 
 table {
-  border-spacing: 0;
-}
-td {
-  padding:4px;
-  height: 4ex;
-}
-th {
-  padding:4px;
-  height: 4ex;
+    border-spacing: 0;
 }
 
-#x_label, #y_label {
+td {
+    padding: 4px;
+    height: 4ex;
+}
+
+th {
+    padding: 4px;
+    height: 4ex;
+}
+
+#x_label,
+#y_label {
     fill: #AAAAAA;
     font-size: 10pt;
 }

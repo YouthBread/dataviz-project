@@ -1,19 +1,17 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <title>Kobe Bryant</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
     <!-- D3.js script -->
     <script src="https://d3js.org/d3.v4.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.24.0/d3-legend.min.js"></script>
     <script src="https://d3js.org/d3-contour.v1.min.js"></script>
     <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
     <script src="https://d3js.org/d3-transition.v1.min.js"></script>
-
-
     <!-- My own script -->
     <script src="src/Court.js"></script>
     <script src="src/Shot.js"></script>
@@ -23,335 +21,400 @@
     <script src="src/Injury.js"></script>
     <script src="src/Line.js"></script>
     <script src="src/RadarChart.js"></script>
-
     <!-- My own css -->
     <link rel='stylesheet' href='css/styles.css'>
-
-
-
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700" rel="stylesheet">
-
-
     <!-- Bootstrap -->
     <!-- jQuery (necessary for Bootstrap"s JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
     <!-- Optional theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
-
-
-
-
     <!-- Bootstrap -->
-  </head>
+</head>
 
-  <body>
+<body>
     <div class="container">
-    <div class="title col-sm-12">
-        <h1 class="display-1">Kobe Bryant NBA Career</h1>
-        <p>This is an insight into Kobe Bryant's NBA journey.</p>
+        <div class="title col-sm-12">
+            <h1 class="display-1">Kobe Bryant NBA Career</h1>
+            <p>This is an insight into Kobe Bryant's NBA journey.</p>
+        </div>
     </div>
-  </div>
-   <div class="container">
-<div class="row">
-<div class="col-md-5">
-    <div id='float_court'>
-        <div class="btn-group" data-toggle="buttons" id="shot_selection">
-            <label class="btn btn-secondary active">
-              <input type="radio" name="options" id="option1" autocomplete="off" checked> All shots
-            </label>
-            <label class="btn btn-secondary">
-              <input type="radio" name="options" id="option2" autocomplete="off"> Made
-            </label>
-            <label class="btn btn-secondary">
-              <input type="radio" name="options" id="option2" autocomplete="off"> Missed
-            </label>
-      </div>
-    <div id="court">
-    <h3 id="caption"><text></text></h3>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-5">
+                <div id='float_court'>
+                    <div class="btn-group" data-toggle="buttons" id="shot_selection">
+                        <label class="btn btn-secondary active">
+                            <input type="radio" name="options" id="option1" autocomplete="off" checked> All shots
+                        </label>
+                        <label class="btn btn-secondary">
+                            <input type="radio" name="options" id="option2" autocomplete="off"> Made
+                        </label>
+                        <label class="btn btn-secondary">
+                            <input type="radio" name="options" id="option2" autocomplete="off"> Missed
+                        </label>
+                    </div>
+                    <div id="court">
+                        <h3 id="caption"><text></text></h3>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-7">
+                <blockquote class="blockquote text-right">
+                    <p class="mb-0"><em>Everything negative - pressure, challenges - is all an opportunity for me to rise.</em></p>
+                    <footer class="blockquote-footer">
+                        <cite title="Source Title">Kobe Bryant</cite>
+                    </footer>
+                </blockquote>
+                <p>
+                    <b>Kobe Bean Bryant</b> (born August 23, 1978) is an American retired professional basketball player and businessman. He played his entire 20-year career with the Los Angeles Lakers of the National Basketball Association (NBA). He entered the NBA directly from high school and won five NBA championships with the Lakers. Bryant is an 18-time All-Star, 15-time member of the All-NBA Team, and 12-time member of the All-Defensive team. He led the NBA in scoring during two seasons, and ranks third on the league"s all-time regular season scoring and fourth on the all-time postseason scoring list. He holds the NBA record for the most seasons playing with one franchise for an entire career, and is widely regarded as one of the best basketball players of all time. Bryant is the first guard in NBA history to play for at least 20 seasons.<sup class="reference"><a href="https://en.wikipedia.org/wiki/Kobe_Bryant">[1]</a></sup>
+                </p>
+                <p>
+                    Kobe is the one of the best NBA players we have seen and somebody even cliam that his is the greatest NBA player of all time. And sure, Kobe can do what ever he wants on the field and he can helphis team to win. The following is the line chart for different categories of stats for Kobe during all his career.
+                </p>
+                <div class="btn-group" id="stat_selection">
+                    <button type="button" class="btn btn-sm dropdown-toggle btn-info" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Action
+                    </button>
+                    <div class="dropdown-menu">
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item">G -- Games</a>
+                        <a class="dropdown-item">MP -- Minutes Played Per Game</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item">FG -- Field Goals Per Game</a>
+                        <a class="dropdown-item">FGA -- Field Goal Attempts Per Game</a>
+                        <a class="dropdown-item">FG% -- Field Goal Percentage</a>
+                        <a class="dropdown-item">3P -- 3-Point Field Goals Per Game</a>
+                        <a class="dropdown-item">3PA -- 3-Point Field Goal Attempts Per Game</a>
+                        <a class="dropdown-item">3P% -- 3-Point Field Goal Percentage</a>
+                        <a class="dropdown-item">2P -- 2-Point Field Goals Per Game</a>
+                        <a class="dropdown-item">2PA -- 2-Point Field Goal Attempts Per Game</a>
+                        <a class="dropdown-item">2P% -- 2-Point Field Goal Percentage</a>
+                        <a class="dropdown-item">FT -- Free Throws Per Game</a>
+                        <a class="dropdown-item">FTA -- Free Throw Attempts Per Game</a>
+                        <a class="dropdown-item">FT% -- Free Throw Percentage</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item">ORB -- Offensive Rebounds Per Game</a>
+                        <a class="dropdown-item">DRB -- Defensive Rebounds Per Game</a>
+                        <a class="dropdown-item">TRB -- Total Rebounds Per Game</a>
+                        <a class="dropdown-item">AST -- Assists Per Game</a>
+                        <a class="dropdown-item">STL -- Steals Per Game</a>
+                        <a class="dropdown-item">BLK -- Blocks Per Game</a>
+                        <a class="dropdown-item">TOV -- Turnovers Per Game</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item">PF -- Personal Fouls Per Game</a>
+                        <a class="dropdown-item">PTS -- Points Per Game</a>
+                    </div>
+                </div>
+                <h5 id="line1_caption" class="text-center"><text> Kobe Bryant Point per season</text></h5>
+                <svg id="line1">
+                    <g id="x_axis">
+                        <text id="x_label"></text>
+                    </g>
+                    <g id="y_axis">
+                        <text id="y_label"></text>
+                    </g>
+                </svg>
+                <p>
+                    Kobe is famous for the ability of scoring. Kobe led the NBA in scoring during the 2005–06 and 2006–07 seasons. In 2006, he scored a career-high 81 points against the Toronto Raptors, the second most points scored in a single game in league history behind Wilt Chamberlain's 100-point game in 1962.<sup class="reference"><a href="https://en.wikipedia.org/wiki/Kobe_Bryant">[2]</a></sup> And now let's take a look at the scoring map for the selcting season.
+                </p>
+                <h5 id="line2_caption" class="text-center"><text></text></h5>
+                <svg id="line2">
+                    <g id="x_axis">
+                        <text id="x_label"></text>
+                    </g>
+                    <g id="y_axis">
+                        <text id="y_label"></text>
+                    </g>
+                </svg>
+                <h5 id="line3_caption" class="text-center"><text></text></h5>
+                <svg id="line3">
+                    <g id="x_axis">
+                        <text id="x_label"></text>
+                    </g>
+                    <g id="y_axis">
+                        <text id="y_label"></text>
+                    </g>
+                </svg>
+                <p>
+                    The above 2 line chart is the scoring and accuracy for selecting season. And you can see from the first line chart, there is a red line which indicates the injury incidents happened. As we all know that injury is the worst thing that could happen to a professional player. And these injury can lead to a down performance on the field. And this visualization is trying to find some connectino on this.
+                </p>
+                <blockquote class="blockquote text-right">
+                    <p class="mb-0"><em>"For a brief moment, it was the first time that I saw doubt -- not defeat, but doubt -- on his face," Vitti says today. "Like, 'Oh, this actually could be it.' It's an Achilles. It's interesting. If you ask him this, that his Achilles was bothering him, he'll tell you the opposite, and that's what scared him about this. It was injury without any forewarning."<sup class="reference"><a href="http://www.espn.com/nba/story/_/id/15186931/last-true-days-kobe-bryant">[2]</a></sup></em></p>
+                </blockquote>
+                <p>
+                    At the end, I try to quantify the performance of Kobe in different season. I'm not a sports expert and I'm not great at ranking a player. But I use what I'm understading for the basketball to tell you how Kobe perform for each season.
+                </p>
+                <p>
+                    For each season, based on the stats, I catrgorize them into 3 different categories: Offense, Defence and Efficency. For each category, the combination is the following,</p>
+                <dl class="row">
+                    <dt class="col-sm-4">Offense</dt>
+                    <dd class="col-sm-8">Offensive Rebounds, Assists, Turnovers, Attempts and goals for Free Throws, Field Goals and 3-Point Field Goals</dd>
+                    <dt class="col-sm-4">Defense</dt>
+                    <dd class="col-sm-8">Defensive Rebounds, Steals, Blocks</dd>
+                    <dt class="col-sm-4">Efficency</dt>
+                    <dd class="col-sm-8">Minutes Played, Accuracy for Free Throws, Field Goals and 3-Point Field Goals</dd>
+                </dl>
+                <h5 id="radar_caption" class="text-center"><text> Kobe Braynt Radar Chart</text></h5>
+                <div class="radarChart"> </div>
+            </div>
+        </div>
     </div>
-  </div>
-</div>
-
-<div class="col-md-7">
-
-  <blockquote class="blockquote text-right">
-    <p class="mb-0"><em>Everything negative - pressure, challenges - is all an opportunity for me to rise.</em></p>
-    <footer class="blockquote-footer"><cite title="Source Title">Kobe Bryant</cite></footer>
-  </blockquote>
-
-<p>
-<b>Kobe Bean Bryant</b> (born August 23, 1978) is an American retired professional basketball player and businessman. He played his entire 20-year career with the Los Angeles Lakers of the National Basketball Association (NBA). He entered the NBA directly from high school and won five NBA championships with the Lakers. Bryant is an 18-time All-Star, 15-time member of the All-NBA Team, and 12-time member of the All-Defensive team. He led the NBA in scoring during two seasons, and ranks third on the league"s all-time regular season scoring and fourth on the all-time postseason scoring list. He holds the NBA record for the most seasons playing with one franchise for an entire career, and is widely regarded as one of the best basketball players of all time. Bryant is the first guard in NBA history to play for at least 20 seasons.<sup class="reference"><a href="https://en.wikipedia.org/wiki/Kobe_Bryant">[1]</a></sup>
-</p>
-
-<p>
-Kobe is the one of the best NBA players we have seen and somebody even cliam that his is the greatest NBA player of all time. And sure, Kobe can do what ever he wants on the field and he can helphis team to win. The following is the line chart for different categories of stats for Kobe during all his career.
-</p>
-
-<div class="btn-group" id="stat_selection">
-    <button type="button" class="btn btn-sm dropdown-toggle btn-info" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      Action
-    </button>
-    <div class="dropdown-menu">
-      <div class="dropdown-divider"></div>
-      <a class="dropdown-item" >G -- Games</a>
-      <a class="dropdown-item" >MP -- Minutes Played Per Game</a>
-      <div class="dropdown-divider"></div>
-      <a class="dropdown-item" >FG -- Field Goals Per Game</a>
-      <a class="dropdown-item" >FGA -- Field Goal Attempts Per Game</a>
-      <a class="dropdown-item" >FG% -- Field Goal Percentage</a>
-      <a class="dropdown-item" >3P -- 3-Point Field Goals Per Game</a>
-      <a class="dropdown-item" >3PA -- 3-Point Field Goal Attempts Per Game</a>
-      <a class="dropdown-item" >3P% -- 3-Point Field Goal Percentage</a>
-      <a class="dropdown-item" >2P -- 2-Point Field Goals Per Game</a>
-      <a class="dropdown-item" >2PA -- 2-Point Field Goal Attempts Per Game</a>
-      <a class="dropdown-item" >2P% -- 2-Point Field Goal Percentage</a>
-      <a class="dropdown-item" >FT -- Free Throws Per Game</a>
-      <a class="dropdown-item" >FTA -- Free Throw Attempts Per Game</a>
-      <a class="dropdown-item" >FT% -- Free Throw Percentage</a>
-      <div class="dropdown-divider"></div>
-      <a class="dropdown-item" >ORB -- Offensive Rebounds Per Game</a>
-      <a class="dropdown-item" >DRB -- Defensive Rebounds Per Game</a>
-      <a class="dropdown-item" >TRB -- Total Rebounds Per Game</a>
-      <a class="dropdown-item" >AST -- Assists Per Game</a>
-      <a class="dropdown-item" >STL -- Steals Per Game</a>
-      <a class="dropdown-item" >BLK -- Blocks Per Game</a>
-      <a class="dropdown-item" >TOV -- Turnovers Per Game</a>
-      <div class="dropdown-divider"></div>
-      <a class="dropdown-item" >PF -- Personal Fouls Per Game</a>
-      <a class="dropdown-item" >PTS -- Points Per Game</a>
-    </div>
-</div>
-
-
-<h5 id="line1_caption" class="text-center"><text> Kobe Bryant Point per season</text></h5>
-
-<svg id="line1">
-  <g id="x_axis">    <text id="x_label"></text></g>
-  <g id="y_axis">    <text id="y_label"></text></g>
-</svg>
-
-<p>
-Kobe is famous for the ability of scoring. Kobe led the NBA in scoring during the 2005–06 and 2006–07 seasons. In 2006, he scored a career-high 81 points against the Toronto Raptors, the second most points scored in a single game in league history behind Wilt Chamberlain's 100-point game in 1962.<sup class="reference"><a href="https://en.wikipedia.org/wiki/Kobe_Bryant">[2]</a></sup> And now let's take a look at the scoring map for the selcting season.
-</p>
-
-
-
-<h5 id="line2_caption" class="text-center"><text></text></h5>
-<svg id="line2">
-  <g id="x_axis">    <text id="x_label"></text></g>
-  <g id="y_axis">    <text id="y_label"></text></g>
-</svg>
-
-<h5 id="line3_caption" class="text-center"><text></text></h5>
-<svg id="line3">
-  <g id="x_axis">    <text id="x_label"></text></g>
-  <g id="y_axis">    <text id="y_label"></text></g>
-</svg>
-
-<p>
-The above 2 line chart is the scoring and accuracy for selecting seaon. And you can see from the first line chart, there is a red line which indicates the injury incidents happened. As we all know that injury is the worst thing that could happen to a professional player. And these injury can lead to a down performance on the field. And this visualization is trying to find some connectino on this.
-</p>
-
-  <blockquote class="blockquote text-right">
-    <p class="mb-0"><em>"For a brief moment, it was the first time that I saw doubt -- not defeat, but doubt -- on his face," Vitti says today. "Like, 'Oh, this actually could be it.' It's an Achilles. It's interesting. If you ask him this, that his Achilles was bothering him, he'll tell you the opposite, and that's what scared him about this. It was injury without any forewarning."<sup class="reference"><a href="http://www.espn.com/nba/story/_/id/15186931/last-true-days-kobe-bryant">[2]</a></sup></em></p>
-  </blockquote>
-
-<p>
-At the end, I try to quantify the performance of Kobe in different season. I'm not a sports expert and I'm not great at ranking a player. But I use what I'm understading for the basketball to tell you how Kobe perform for each season.
-</p>
-
-<p>
-For each season, based on the stats, I catrgorize them into 3 different categories: Offense, Defence and Efficency. For each category, the combination is the following,</p>
-<dl class="row">
-    <dt class="col-sm-4">Offense</dt>
-    <dd class="col-sm-8">Offensive Rebounds, Assists, Turnovers, Attempts and goals for Free Throws, Field Goals and 3-Point Field Goals</dd>
-    <dt class="col-sm-4">Defense</dt>
-    <dd class="col-sm-8">Defensive Rebounds, Steals, Blocks</dd>
-    <dt class="col-sm-4">Efficency</dt>
-    <dd class="col-sm-8">Minutes Played, Accuracy for Free Throws, Field Goals and 3-Point Field Goals</dd>
-</dl>
-
-
-<h5 id="radar_caption" class="text-center"><text> Kobe Braynt Radar Chart</text></h5>
-<div class="radarChart"> </div>
-</div>
-</div>
-</div>
-
     <script>
-        $(function () {
-            $('[data-toggle="popover"]').popover()
+    $(function() {
+        $('[data-toggle="popover"]').popover()
+    })
+
+    var career_data = {
+        '2P': 7.3,
+        '2P%': 0.48,
+        '2PA': 15.3,
+        '3P': 1.4,
+        '3P%': 0.33,
+        '3PA': 4.1,
+        'AST': 4.7,
+        'BLK': 0.5,
+        'DRB': 4.1,
+        'FG': 8.7,
+        'FG%': 0.447,
+        'FGA': 19.5,
+        'FT': 6.2,
+        'FT%': 0.837,
+        'FTA': 7.4,
+        'G': 1346,
+        'MP': 36.1,
+        'ORB': 1.1,
+        'PF': 2.5,
+        'PTS': 25.0,
+        'STL': 1.4,
+        'TOV': 3.0,
+        'TRB': 5.2,
+        'eFG%': 0.482
+    }
+
+    const margin = { left: 20, right: 20, top: 20, bottom: 20 };
+    var chartDiv = document.getElementById("court");
+    var court = d3.select(chartDiv).append("svg");
+    // var radar = d3.select(chartDiv).append("svg").attr("class", "radarChart");
+    const parseTime = d3.timeParse("%Y");
+    const format = d3.timeFormat("%Y");
+
+    court.attr("width", 580)
+        .attr("height", 500)
+        .attr("transform", "translate(0,0)");
+
+
+
+    var heat_g = court.append("g")
+        .attr("id", "heat_map");
+
+    var court_g = court.append("g")
+        .attr("id", "basketball_court");
+
+
+
+
+    var slider_axis = court.append("g")
+        .attr("class", "slider-axis");
+    var slider_rect = court.append("g")
+        .attr("class", "slider-rect");
+
+    var rect_entity = slider_rect.append("rect");
+
+    const court_xScale = d3.scaleLinear()
+        .domain([-25, 25]);
+    const court_yScale = d3.scaleLinear()
+        .domain([-4, 43]);
+    const shot_xScale = d3.scaleLinear()
+        .domain([-250, 250]);
+    const shot_yScale = d3.scaleLinear()
+        .domain([-45, 420]);
+
+
+    var Basket = court_g.append("circle");
+    var Backboard = court_g.append("rect");
+    var Outterbox = court_g.append("rect");
+    var Innerbox = court_g.append("rect");
+    var CornerThreeLeft = court_g.append("rect");
+    var CornerThreeRight = court_g.append("rect");
+    var OuterLine = court_g.append("rect");
+    var RestrictedArea = court_g.append("path")
+    var TopFreeThrow = court_g.append("path")
+    var BottomFreeThrow = court_g.append("path")
+    var ThreeLine = court_g.append("path")
+    var CenterOuter = court_g.append("path")
+    var CenterInner = court_g.append("path")
+
+    var court_width = 480
+
+    var t = d3.transition()
+        .duration(700);
+
+    var rank_data = {
+        '1996-97': [
+            [{ 'axis': 'Offense', 'value': 0.29328621908127206 },
+                { 'axis': 'Defence', 'value': 0.2558139534883721 },
+                { 'axis': 'Efficiency', 'value': 0.40350235471629103 }
+            ]
+        ],
+        '1997-98': [
+            [{ 'axis': 'Offense', 'value': 0.5147232037691402 },
+                { 'axis': 'Defence', 'value': 0.4069767441860466 },
+                { 'axis': 'Efficiency', 'value': 0.6434776644872205 }
+            ]
+        ],
+        '1998-99': [
+            [{ 'axis': 'Offense', 'value': 0.7084805653710247 },
+                { 'axis': 'Defence', 'value': 0.7674418604651163 },
+                { 'axis': 'Efficiency', 'value': 0.9185679667139134 }
+            ]
+        ],
+        '1999-00': [
+            [{ 'axis': 'Offense', 'value': 0.8133097762073026 },
+                { 'axis': 'Defence', 'value': 0.8372093023255814 },
+                { 'axis': 'Efficiency', 'value': 0.9251063051529423 }
+            ]
+        ],
+        '2000-01': [
+            [{ 'axis': 'Offense', 'value': 0.929328621908127 },
+                { 'axis': 'Defence', 'value': 0.7674418604651163 },
+                { 'axis': 'Efficiency', 'value': 0.98738054958621 }
+            ]
+        ],
+        '2001-02': [
+            [{ 'axis': 'Offense', 'value': 0.8828032979976442 },
+                { 'axis': 'Defence', 'value': 0.6976744186046512 },
+                { 'axis': 'Efficiency', 'value': 0.9273924374742811 }
+            ]
+        ],
+        '2002-03': [
+            [{ 'axis': 'Offense', 'value': 1.0 },
+                { 'axis': 'Defence', 'value': 1.0 },
+                { 'axis': 'Efficiency', 'value': 1.0 }
+            ]
+        ],
+        '2003-04': [
+            [{ 'axis': 'Offense', 'value': 0.8339222614840989 },
+                { 'axis': 'Defence', 'value': 0.6976744186046512 },
+                { 'axis': 'Efficiency', 'value': 0.9103607516803073 }
+            ]
+        ],
+        '2004-05': [
+            [{ 'axis': 'Offense', 'value': 0.9888103651354533 },
+                { 'axis': 'Defence', 'value': 0.7674418604651164 },
+                { 'axis': 'Efficiency', 'value': 0.9808193498239678 }
+            ]
+        ],
+        '2005-06': [
+            [{ 'axis': 'Offense', 'value': 0.9764428739693758 },
+                { 'axis': 'Defence', 'value': 0.7674418604651164 },
+                { 'axis': 'Efficiency', 'value': 0.9892780394129213 }
+            ]
+        ],
+        '2006-07': [
+            [{ 'axis': 'Offense', 'value': 0.9605418138987044 },
+                { 'axis': 'Defence', 'value': 0.7674418604651163 },
+                { 'axis': 'Efficiency', 'value': 0.9860088701934067 }
+            ]
+        ],
+        '2007-08': [
+            [{ 'axis': 'Offense', 'value': 0.9040047114252061 },
+                { 'axis': 'Defence', 'value': 0.8720930232558141 },
+                { 'axis': 'Efficiency', 'value': 0.9417036258058614 }
+            ]
+        ],
+        '2008-09': [
+            [{ 'axis': 'Offense', 'value': 0.8415783274440518 },
+                { 'axis': 'Defence', 'value': 0.7093023255813954 },
+                { 'axis': 'Efficiency', 'value': 0.8783548991815646 }
+            ]
+        ],
+        '2009-10': [
+            [{ 'axis': 'Offense', 'value': 0.8863368669022379 },
+                { 'axis': 'Defence', 'value': 0.7093023255813954 },
+                { 'axis': 'Efficiency', 'value': 0.9382744273238536 }
+            ]
+        ],
+        '2010-11': [
+            [{ 'axis': 'Offense', 'value': 0.8274440518256773 },
+                { 'axis': 'Defence', 'value': 0.627906976744186 },
+                { 'axis': 'Efficiency', 'value': 0.8265054181336018 }
+            ]
+        ],
+        '2011-12': [
+            [{ 'axis': 'Offense', 'value': 0.9057714958775028 },
+                { 'axis': 'Defence', 'value': 0.6744186046511628 },
+                { 'axis': 'Efficiency', 'value': 0.9304787161080883 }
+            ]
+        ],
+        '2012-13': [
+            [{ 'axis': 'Offense', 'value': 0.9334511189634864 },
+                { 'axis': 'Defence', 'value': 0.744186046511628 },
+                { 'axis': 'Efficiency', 'value': 0.9353939005989668 }
+            ]
+        ],
+        '2013-14': [
+            [{ 'axis': 'Offense', 'value': 0.8227326266195523 },
+                { 'axis': 'Defence', 'value': 0.627906976744186 },
+                { 'axis': 'Efficiency', 'value': 0.7251154496822277 }
+            ]
+        ],
+        '2014-15': [
+            [{ 'axis': 'Offense', 'value': 0.8745583038869258 },
+                { 'axis': 'Defence', 'value': 0.744186046511628 },
+                { 'axis': 'Efficiency', 'value': 0.8343925746422204 }
+            ]
+        ],
+        '2015-16': [
+            [{ 'axis': 'Offense', 'value': 0.570082449941107 },
+                { 'axis': 'Defence', 'value': 0.48837209302325585 },
+                { 'axis': 'Efficiency', 'value': 0.6906634355996526 }
+            ]
+        ]
+    }
+
+    draw_court();
+    Slider();
+
+
+
+
+    setTimeout(function() {
+        $(document).ready(function() {
+            $('[data-toggle="tooltip"]').tooltip();
+        });
+    }, 4000);
+
+    d3.select("#shot_selection").selectAll('label').on("click", function() {
+        button_update_all();
+    })
+    d3.select("#stat_selection").selectAll('a').on("click", function() {
+        Shot_Stat_Line(this.text.split(" ")[0], 'line1');
+
+        d3.csv("data/stat.csv", data => {
+            xScale = d3.scaleTime()
+                .domain(d3.extent(data, d => parseTime(d.Season.split("-")[0])))
+                .range([80, 610])
+                .nice();
+
+            var selected_season = d3.select(".col-md-5").select('#caption').text().split("-")[0];
+            var target_season = xScale(parseTime(selected_season));
+
+            d3.select("#line1").select('circle[cx="' + target_season + '"]').attr("fill", "red").attr('r', 10)
+
         })
 
-        var career_data = {'2P': 7.3,
-                           '2P%': 0.48,
-                           '2PA': 15.3,
-                           '3P': 1.4,
-                           '3P%': 0.33,
-                           '3PA': 4.1,
-                           'AST': 4.7,
-                           'BLK': 0.5,
-                           'DRB': 4.1,
-                           'FG': 8.7,
-                           'FG%': 0.447,
-                           'FGA': 19.5,
-                           'FT': 6.2,
-                           'FT%': 0.837,
-                           'FTA': 7.4,
-                           'G': 1346,
-                           'MP': 36.1,
-                           'ORB': 1.1,
-                           'PF': 2.5,
-                           'PTS': 25.0,
-                           'STL': 1.4,
-                           'TOV': 3.0,
-                           'TRB': 5.2,
-                           'eFG%': 0.482}
-
-        const margin = { left: 20, right: 20, top: 20, bottom: 20 };
-        var chartDiv = document.getElementById("court");
-        var court = d3.select(chartDiv).append("svg");
-        // var radar = d3.select(chartDiv).append("svg").attr("class", "radarChart");
-        const parseTime = d3.timeParse("%Y");
-
-        court.attr("width", 580)
-             .attr("height",500)
-             .attr("transform", "translate(0,0)");
 
 
-
-        var heat_g = court.append("g")
-                          .attr("id", "heat_map");
-
-        var court_g = court.append("g")
-                           .attr("id", "basketball_court");
-
-
-
-
-        var slider_axis = court.append("g")
-                               .attr("class", "slider-axis");
-        var slider_rect = court.append("g")
-                               .attr("class", "slider-rect");
-
-        var rect_entity = slider_rect.append("rect");
-
-        const court_xScale = d3.scaleLinear()
-                                     .domain([-25, 25]);
-        const court_yScale = d3.scaleLinear()
-                                     .domain([-4,43]);
-        const shot_xScale = d3.scaleLinear()
-                                     .domain([-250, 250]);
-        const shot_yScale = d3.scaleLinear()
-                                     .domain([-45,420]);
-
-
-        var Basket = court_g.append("circle");
-        var Backboard = court_g.append("rect");
-        var Outterbox = court_g.append("rect");
-        var Innerbox = court_g.append("rect");
-        var CornerThreeLeft = court_g.append("rect");
-        var CornerThreeRight = court_g.append("rect");
-        var OuterLine = court_g.append("rect");
-        var RestrictedArea = court_g.append("path")
-        var TopFreeThrow = court_g.append("path")
-        var BottomFreeThrow = court_g.append("path")
-        var ThreeLine = court_g.append("path")
-        var CenterOuter = court_g.append("path")
-        var CenterInner = court_g.append("path")
-
-        var court_width = 480
-
-        var t = d3.transition()
-                  .duration(700);
-
-        var rank_data = {'1996-97': [[{'axis': 'Offense', 'value': 0.29328621908127206},
-                           {'axis': 'Defence', 'value': 0.2558139534883721},
-                           {'axis': 'Efficiency', 'value': 0.40350235471629103}]],
-                         '1997-98': [[{'axis': 'Offense', 'value': 0.5147232037691402},
-                           {'axis': 'Defence', 'value': 0.4069767441860466},
-                           {'axis': 'Efficiency', 'value': 0.6434776644872205}]],
-                         '1998-99': [[{'axis': 'Offense', 'value': 0.7084805653710247},
-                           {'axis': 'Defence', 'value': 0.7674418604651163},
-                           {'axis': 'Efficiency', 'value': 0.9185679667139134}]],
-                         '1999-00': [[{'axis': 'Offense', 'value': 0.8133097762073026},
-                           {'axis': 'Defence', 'value': 0.8372093023255814},
-                           {'axis': 'Efficiency', 'value': 0.9251063051529423}]],
-                         '2000-01': [[{'axis': 'Offense', 'value': 0.929328621908127},
-                           {'axis': 'Defence', 'value': 0.7674418604651163},
-                           {'axis': 'Efficiency', 'value': 0.98738054958621}]],
-                         '2001-02': [[{'axis': 'Offense', 'value': 0.8828032979976442},
-                           {'axis': 'Defence', 'value': 0.6976744186046512},
-                           {'axis': 'Efficiency', 'value': 0.9273924374742811}]],
-                         '2002-03': [[{'axis': 'Offense', 'value': 1.0},
-                           {'axis': 'Defence', 'value': 1.0},
-                           {'axis': 'Efficiency', 'value': 1.0}]],
-                         '2003-04': [[{'axis': 'Offense', 'value': 0.8339222614840989},
-                           {'axis': 'Defence', 'value': 0.6976744186046512},
-                           {'axis': 'Efficiency', 'value': 0.9103607516803073}]],
-                         '2004-05': [[{'axis': 'Offense', 'value': 0.9888103651354533},
-                           {'axis': 'Defence', 'value': 0.7674418604651164},
-                           {'axis': 'Efficiency', 'value': 0.9808193498239678}]],
-                         '2005-06': [[{'axis': 'Offense', 'value': 0.9764428739693758},
-                           {'axis': 'Defence', 'value': 0.7674418604651164},
-                           {'axis': 'Efficiency', 'value': 0.9892780394129213}]],
-                         '2006-07': [[{'axis': 'Offense', 'value': 0.9605418138987044},
-                           {'axis': 'Defence', 'value': 0.7674418604651163},
-                           {'axis': 'Efficiency', 'value': 0.9860088701934067}]],
-                         '2007-08': [[{'axis': 'Offense', 'value': 0.9040047114252061},
-                           {'axis': 'Defence', 'value': 0.8720930232558141},
-                           {'axis': 'Efficiency', 'value': 0.9417036258058614}]],
-                         '2008-09': [[{'axis': 'Offense', 'value': 0.8415783274440518},
-                           {'axis': 'Defence', 'value': 0.7093023255813954},
-                           {'axis': 'Efficiency', 'value': 0.8783548991815646}]],
-                         '2009-10': [[{'axis': 'Offense', 'value': 0.8863368669022379},
-                           {'axis': 'Defence', 'value': 0.7093023255813954},
-                           {'axis': 'Efficiency', 'value': 0.9382744273238536}]],
-                         '2010-11': [[{'axis': 'Offense', 'value': 0.8274440518256773},
-                           {'axis': 'Defence', 'value': 0.627906976744186},
-                           {'axis': 'Efficiency', 'value': 0.8265054181336018}]],
-                         '2011-12': [[{'axis': 'Offense', 'value': 0.9057714958775028},
-                           {'axis': 'Defence', 'value': 0.6744186046511628},
-                           {'axis': 'Efficiency', 'value': 0.9304787161080883}]],
-                         '2012-13': [[{'axis': 'Offense', 'value': 0.9334511189634864},
-                           {'axis': 'Defence', 'value': 0.744186046511628},
-                           {'axis': 'Efficiency', 'value': 0.9353939005989668}]],
-                         '2013-14': [[{'axis': 'Offense', 'value': 0.8227326266195523},
-                           {'axis': 'Defence', 'value': 0.627906976744186},
-                           {'axis': 'Efficiency', 'value': 0.7251154496822277}]],
-                         '2014-15': [[{'axis': 'Offense', 'value': 0.8745583038869258},
-                           {'axis': 'Defence', 'value': 0.744186046511628},
-                           {'axis': 'Efficiency', 'value': 0.8343925746422204}]],
-                         '2015-16': [[{'axis': 'Offense', 'value': 0.570082449941107},
-                           {'axis': 'Defence', 'value': 0.48837209302325585},
-                           {'axis': 'Efficiency', 'value': 0.6906634355996526}]]}
-
-        draw_court();
-        Slider();
-
-
-
-
-      setTimeout(function(){ $(document).ready(function(){
-          $('[data-toggle="tooltip"]').tooltip();
-      }); }, 4000);
-
-      d3.select("#shot_selection").selectAll('label').on("click", function() {
-          button_update_all();
-          })
-      d3.select("#stat_selection").selectAll('a').on("click", function() {
-          Shot_Stat_Line(this.text.split(" ")[0], 'line1');
-          })
+    })
     </script>
+</body>
 
-  </body>
 </html>
